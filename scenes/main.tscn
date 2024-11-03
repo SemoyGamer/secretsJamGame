@@ -1,8 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://dxjfp7v5ui3iu"]
+[gd_scene load_steps=3 format=3 uid="uid://dxjfp7v5ui3iu"]
 
 [ext_resource type="PackedScene" uid="uid://cw0cd3hrp7xf3" path="res://objects/player.tscn" id="1_udybp"]
+[ext_resource type="PackedScene" uid="uid://dkpec85secula" path="res://objects/block.tscn" id="2_1c4yu"]
 
 [node name="main" type="Node2D"]
 
 [node name="player" parent="." instance=ExtResource("1_udybp")]
 position = Vector2(618, 322)
+
+[node name="block" parent="." instance=ExtResource("2_1c4yu")]
+position = Vector2(1006, 574)
+scale = Vector2(-10.2705, 1.24961)

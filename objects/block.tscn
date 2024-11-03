@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dkpec85secula"]
+
+[ext_resource type="Texture2D" uid="uid://dobu43qgbp825" path="res://icon.svg" id="1_gagho"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ue7pa"]
+size = Vector2(128, 128)
+
+[node name="block" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.244776, 0.244776, 0.244776, 1)
+texture = ExtResource("1_gagho")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ue7pa")
