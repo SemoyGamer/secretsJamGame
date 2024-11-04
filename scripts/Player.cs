@@ -29,7 +29,6 @@ public partial class Player : CharacterBody2D{
 			//player rotation
 			_theta = Mathf.Wrap(Mathf.Atan2(direction.Y, direction.X) - Rotation + Mathf.Pi / 2, -Mathf.Pi, Mathf.Pi);
 			Rotation += Mathf.Clamp(rotationSpeed * (float)delta, 0, Mathf.Abs(_theta)) * Mathf.Sign(_theta);
-			//float aRot = Rotation - 90;
 		}else{
 			velocity = Vector2.Zero;
 			playerSprite.Play("idle");
@@ -37,17 +36,5 @@ public partial class Player : CharacterBody2D{
 
 		Velocity = velocity;
 		MoveAndSlide();
-	}
-
-	public override void _Process(double delta){
-		//setPlayerRotation();
-	}
-
-	public void setPlayerRotation(){
-		if(direction == new Vector2 (0, -1)){
-			//Rotation.LerpAngle(5,0);
-		}else if(direction == new Vector2 (0, 1)){
-			RotationDegrees = 180;
-		}
 	}
 }
