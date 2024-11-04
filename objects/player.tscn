@@ -1,18 +1,65 @@
-[gd_scene load_steps=4 format=3 uid="uid://cw0cd3hrp7xf3"]
+[gd_scene load_steps=10 format=3 uid="uid://cw0cd3hrp7xf3"]
 
-[ext_resource type="Texture2D" uid="uid://dobu43qgbp825" path="res://icon.svg" id="1_48tgb"]
 [ext_resource type="Script" path="res://scripts/Player.cs" id="1_d4ad3"]
+[ext_resource type="Texture2D" uid="uid://djx460pwqphct" path="res://sprites/player/playerIdle.png" id="2_e8xhw"]
+[ext_resource type="Texture2D" uid="uid://cs7glqysgoiux" path="res://sprites/player/playerWalking.png" id="3_ajq7t"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_q0axx"]
-size = Vector2(128, 128)
+[sub_resource type="AtlasTexture" id="AtlasTexture_lmkmn"]
+atlas = ExtResource("3_ajq7t")
+region = Rect2(0, 0, 32, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6whj8"]
+atlas = ExtResource("3_ajq7t")
+region = Rect2(32, 0, 32, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q21d2"]
+atlas = ExtResource("3_ajq7t")
+region = Rect2(0, 18, 32, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6pjtu"]
+atlas = ExtResource("3_ajq7t")
+region = Rect2(32, 18, 32, 18)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vnadk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_e8xhw")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lmkmn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6whj8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q21d2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6pjtu")
+}],
+"loop": true,
+"name": &"walking",
+"speed": 4.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qy1uq"]
+radius = 36.0
 
 [node name="player" type="CharacterBody2D"]
 script = ExtResource("1_d4ad3")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_48tgb")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_vnadk")
+animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_q0axx")
+shape = SubResource("CircleShape2D_qy1uq")
 
 [node name="Camera2D" type="Camera2D" parent="."]
