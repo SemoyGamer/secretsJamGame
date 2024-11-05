@@ -21,3 +21,9 @@ scale = Vector2(-10.2705, 1.24961)
 
 [node name="torchFloor" parent="." instance=ExtResource("4_uu0mp")]
 position = Vector2(1127, 345)
+
+[node name="torchFloor2" parent="." instance=ExtResource("4_uu0mp")]
+position = Vector2(1262, 318)
+
+[node name="torchFloor3" parent="." instance=ExtResource("4_uu0mp")]
+position = Vector2(1142, 187)

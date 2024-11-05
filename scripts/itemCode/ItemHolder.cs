@@ -4,14 +4,17 @@ using System;
 public partial class ItemHolder : Node2D
 {
 	[Export]
-	public PackedScene heldItem {get; set;}
-	// Called when the node enters the scene tree for the first time.
-	public override void _Ready()
-	{
-	}
+	public Area2D heldItem {get; set;}
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
+	public bool carryingItem;
+
 	public override void _Process(double delta)
 	{
+		//check if there is an item carried in its spot
+		if(heldItem != null){
+			carryingItem = true;
+		}else{
+			carryingItem = false;
+		}
 	}
 }

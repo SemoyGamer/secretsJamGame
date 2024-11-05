@@ -12,9 +12,17 @@ public partial class Player : CharacterBody2D{
 	public float _theta;
 	public float rotationSpeed = Mathf.Tau * 2;
 
+	//item holder variables
+	private ItemHolder itemHolder1;
+	private ItemHolder itemHolder2;
+	private Area2D pickableItem = null;
+
 	public override void _Ready(){
 		//Add a value to some of the variables
 		playerSprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
+
+		itemHolder1 = GetNode<ItemHolder>("itemHolder");
+		itemHolder2 = GetNode<ItemHolder>("itemHolder2");
 	}
 
 	public override void _PhysicsProcess(double delta){
@@ -36,5 +44,34 @@ public partial class Player : CharacterBody2D{
 
 		Velocity = velocity;
 		MoveAndSlide();
+	}
+
+	public override void _Process(double delta){
+		//let the player pick up an item
+		if(Input.IsActionJustPressed("pickUp"))
+			pickUpItem(pickableItem);
+	}
+
+	public void pickUpItem(Area2D item){
+		//checks if the player's hands are empty so it doesn't grab something it can't
+		if(itemHolder1.heldItem == null || itemHolder2.heldItem == null){
+			item.QueueFree();
+
+			if(itemHolder1.heldItem == null && itemHolder2.heldItem == null){
+				itemHolder1.heldItem = item;
+			}else if(itemHolder1.heldItem != null && itemHolder2.heldItem == null){
+				itemHolder2.heldItem = item;
+			}else if(itemHolder1.heldItem == null && itemHolder2.heldItem != null){
+				itemHolder1.heldItem = item;
+			}
+		}
+	}
+
+	public void _on_pick_up_range_area_entered(Area2D item){
+		pickableItem = item;
+	}
+
+	public void _on_pick_up_range_area_exited(Area2D item){
+		pickableItem = null;
 	}
 }

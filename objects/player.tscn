@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cw0cd3hrp7xf3"]
+[gd_scene load_steps=13 format=3 uid="uid://cw0cd3hrp7xf3"]
 
 [ext_resource type="Script" path="res://scripts/Player.cs" id="1_d4ad3"]
 [ext_resource type="Texture2D" uid="uid://djx460pwqphct" path="res://sprites/player/playerIdle.png" id="2_e8xhw"]
@@ -55,6 +55,9 @@ radius = 36.0
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_vr0gu"]
 polygon = PackedVector2Array(-3, -9, -3, -8, -5, -8, -5, -7, -6, -7, -6, -6, -7, -6, -7, -5, -8, -5, -8, -3, -9, -3, -9, 3, -8, 3, -8, 5, -7, 5, -7, 6, -6, 6, -6, 7, -5, 7, -5, 8, -3, 8, -3, 9, 3, 9, 3, 8, 5, 8, 5, 7, 6, 7, 6, 6, 7, 6, 7, 5, 8, 5, 8, 3, 9, 3, 9, -3, 8, -3, 8, -5, 7, -5, 7, -6, 6, -6, 6, -7, 5, -7, 5, -8, 3, -8, 3, -9)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_ekjsh"]
+radius = 119.004
+
 [node name="player" type="CharacterBody2D"]
 script = ExtResource("1_d4ad3")
 
@@ -77,3 +80,12 @@ position = Vector2(50, -16)
 
 [node name="itemHolder2" parent="." instance=ExtResource("4_7qucp")]
 position = Vector2(-50, -16)
+
+[node name="pickUpRange" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pickUpRange"]
+shape = SubResource("CircleShape2D_ekjsh")
+
+[connection signal="area_entered" from="pickUpRange" to="." method="_on_pick_up_range_area_entered"]
+[connection signal="area_exited" from="pickUpRange" to="." method="_on_pick_up_range_area_exited"]
