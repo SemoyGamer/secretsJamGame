@@ -15,3 +15,5 @@ script = ExtResource("1_7f82v")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -10)
 shape = SubResource("CircleShape2D_u2vqr")
+
+[connection signal="movementDone" from="." to="." method="_on_movement_done"]
