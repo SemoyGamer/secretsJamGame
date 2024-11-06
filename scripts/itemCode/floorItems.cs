@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class upAndDown : Area2D
+public partial class floorItems : Area2D
 {
 	public int shakeAmount = 15;
 
@@ -9,6 +9,9 @@ public partial class upAndDown : Area2D
 
 	[Signal]
 	public delegate void movementDoneEventHandler(string type);
+
+	[Export]
+	public String itemName{ get; set;}
 
 	public override void _Ready(){
 		StartingPos = Position;

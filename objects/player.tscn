@@ -87,5 +87,7 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="pickUpRange"]
 shape = SubResource("CircleShape2D_ekjsh")
 
+[connection signal="itemChanged" from="." to="itemHolder" method="_on_player_item_changed"]
+[connection signal="itemChanged" from="." to="itemHolder2" method="_on_player_item_changed"]
 [connection signal="area_entered" from="pickUpRange" to="." method="_on_pick_up_range_area_entered"]
 [connection signal="area_exited" from="pickUpRange" to="." method="_on_pick_up_range_area_exited"]

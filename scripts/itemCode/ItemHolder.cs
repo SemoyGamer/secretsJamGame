@@ -4,7 +4,7 @@ using System;
 public partial class ItemHolder : Node2D
 {
 	[Export]
-	public Area2D heldItem {get; set;}
+	public floorItems heldItem {get; set;}
 
 	public bool carryingItem;
 
@@ -15,6 +15,14 @@ public partial class ItemHolder : Node2D
 			carryingItem = true;
 		}else{
 			carryingItem = false;
+		}
+	}
+
+	public void _on_player_item_changed(){
+		if(heldItem.itemName == "torch"){
+			var torchObj = GD.Load<PackedScene>("res://objects/itemObj/torch.tscn");
+			var torchIns = torchObj.Instantiate();
+			AddChild(torchIns);
 		}
 	}
 }

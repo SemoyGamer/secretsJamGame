@@ -12,13 +12,6 @@ position = Vector2(855, 433)
 scale = Vector2(8.62742, 2.88393)
 texture = ExtResource("1_kgj4g")
 
-[node name="player" parent="." instance=ExtResource("1_udybp")]
-position = Vector2(618, 322)
-
-[node name="block" parent="." instance=ExtResource("2_1c4yu")]
-position = Vector2(1006, 574)
-scale = Vector2(-10.2705, 1.24961)
-
 [node name="torchFloor" parent="." instance=ExtResource("4_uu0mp")]
 position = Vector2(1127, 345)
 
@@ -27,3 +20,15 @@ position = Vector2(1262, 318)
 
 [node name="torchFloor3" parent="." instance=ExtResource("4_uu0mp")]
 position = Vector2(1142, 187)
+
+[node name="player" parent="." instance=ExtResource("1_udybp")]
+position = Vector2(618, 322)
+
+[node name="block" parent="." instance=ExtResource("2_1c4yu")]
+position = Vector2(1006, 574)
+scale = Vector2(-10.2705, 1.24961)
+
+[node name="block2" parent="." instance=ExtResource("2_1c4yu")]
+position = Vector2(1571, 261)
+rotation = -1.60041
+scale = Vector2(-10.2705, 1.24961)

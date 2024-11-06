@@ -15,7 +15,11 @@ public partial class Player : CharacterBody2D{
 	//item holder variables
 	private ItemHolder itemHolder1;
 	private ItemHolder itemHolder2;
-	private Area2D pickableItem = null;
+	private floorItems pickableItem = null;
+
+	//item holder signal
+	[Signal]
+	public delegate void itemChangedEventHandler();
 
 	public override void _Ready(){
 		//Add a value to some of the variables
@@ -48,27 +52,28 @@ public partial class Player : CharacterBody2D{
 
 	public override void _Process(double delta){
 		//let the player pick up an item
-		if(Input.IsActionJustPressed("pickUp"))
+		if(Input.IsActionJustPressed("pickUp") && pickableItem != null){
 			pickUpItem(pickableItem);
+		}
 	}
 
 	public void pickUpItem(Area2D item){
 		//checks if the player's hands are empty so it doesn't grab something it can't
 		if(itemHolder1.heldItem == null || itemHolder2.heldItem == null){
-			item.QueueFree();
-
 			if(itemHolder1.heldItem == null && itemHolder2.heldItem == null){
-				itemHolder1.heldItem = item;
+				itemHolder1.heldItem = (floorItems)item;
 			}else if(itemHolder1.heldItem != null && itemHolder2.heldItem == null){
-				itemHolder2.heldItem = item;
+				itemHolder2.heldItem = (floorItems)item;
 			}else if(itemHolder1.heldItem == null && itemHolder2.heldItem != null){
-				itemHolder1.heldItem = item;
+				itemHolder1.heldItem = (floorItems)item;
 			}
+			item.QueueFree();
+			EmitSignal(SignalName.itemChanged);
 		}
 	}
 
 	public void _on_pick_up_range_area_entered(Area2D item){
-		pickableItem = item;
+		pickableItem = (floorItems)item;
 	}
 
 	public void _on_pick_up_range_area_exited(Area2D item){
