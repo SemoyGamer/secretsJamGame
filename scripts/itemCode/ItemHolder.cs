@@ -18,6 +18,11 @@ public partial class ItemHolder : Node2D
 		}
 	}
 
+	public void deleteItem(){
+		GetChildren()[0].QueueFree();
+		heldItem = null;
+	}
+
 	public void _on_player_item_changed(){
 		if(heldItem.itemName == "torch"){
 			var torchObj = GD.Load<PackedScene>("res://objects/itemObj/torch.tscn");

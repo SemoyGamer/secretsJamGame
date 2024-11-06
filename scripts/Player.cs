@@ -55,6 +55,11 @@ public partial class Player : CharacterBody2D{
 		if(Input.IsActionJustPressed("pickUp") && pickableItem != null){
 			pickUpItem(pickableItem);
 		}
+
+		//let the player drop an item
+		if(Input.IsActionJustPressed("drop")){
+			dropItem();
+		}
 	}
 
 	public void pickUpItem(Area2D item){
@@ -69,6 +74,29 @@ public partial class Player : CharacterBody2D{
 			}
 			item.QueueFree();
 			EmitSignal(SignalName.itemChanged);
+		}
+	}
+
+	public void dropItem(){
+		if(itemHolder1.heldItem != null || itemHolder2.heldItem != null){
+			if(itemHolder1.heldItem != null && itemHolder2.heldItem == null){
+				//if there is an item in hand 1, and not in 2, then drop it
+				chooseItemToDrop(itemHolder1);
+				itemHolder1.deleteItem();
+			}else if(itemHolder1.heldItem != null && itemHolder2.heldItem != null){
+				//If both hands are full, then drop the second hand's item
+				chooseItemToDrop(itemHolder2);
+				itemHolder2.deleteItem();
+			}
+		}
+	}
+
+	public void chooseItemToDrop(ItemHolder iHolder){
+		if(iHolder.heldItem.itemName == "torch"){
+			var itemToDrop = GD.Load<PackedScene>("res://objects/itemObj/floorItems/torch_floor.tscn");
+			var itemToDropIns = (Area2D)itemToDrop.Instantiate();
+			itemToDropIns.Position = Position;
+			GetParent().AddChild(itemToDropIns);
 		}
 	}
 
