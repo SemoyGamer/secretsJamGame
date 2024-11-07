@@ -24,10 +24,12 @@ public partial class ItemHolder : Node2D
 	}
 
 	public void _on_player_item_changed(){
-		if(heldItem.itemName == "torch"){
-			var torchObj = GD.Load<PackedScene>("res://objects/itemObj/torch.tscn");
-			var torchIns = torchObj.Instantiate();
-			AddChild(torchIns);
+		if(!carryingItem){
+			if(heldItem.itemName == "torch"){
+				var torchObj = GD.Load<PackedScene>("res://objects/itemObj/torch.tscn");
+				var torchIns = torchObj.Instantiate();
+				AddChild(torchIns);
+			}
 		}
 	}
 }

@@ -48,6 +48,13 @@ public partial class Player : CharacterBody2D{
 
 		Velocity = velocity;
 		MoveAndSlide();
+
+		//get the overlapping areas of the pickup range
+		if(GetNode<Area2D>("pickUpRange").GetOverlappingAreas().Count > 0){
+			pickableItem = (floorItems)GetNode<Area2D>("pickUpRange").GetOverlappingAreas()[0];
+		}else{
+			pickableItem = null;
+		}
 	}
 
 	public override void _Process(double delta){
@@ -66,11 +73,11 @@ public partial class Player : CharacterBody2D{
 		//checks if the player's hands are empty so it doesn't grab something it can't
 		if(itemHolder1.heldItem == null || itemHolder2.heldItem == null){
 			if(itemHolder1.heldItem == null && itemHolder2.heldItem == null){
+				//if both hands are empty, add the item to hand 1
 				itemHolder1.heldItem = (floorItems)item;
 			}else if(itemHolder1.heldItem != null && itemHolder2.heldItem == null){
+				//if hand 1 is full and 2 is empty, add the item to hand 2
 				itemHolder2.heldItem = (floorItems)item;
-			}else if(itemHolder1.heldItem == null && itemHolder2.heldItem != null){
-				itemHolder1.heldItem = (floorItems)item;
 			}
 			item.QueueFree();
 			EmitSignal(SignalName.itemChanged);
@@ -98,13 +105,5 @@ public partial class Player : CharacterBody2D{
 			itemToDropIns.Position = Position;
 			GetParent().AddChild(itemToDropIns);
 		}
-	}
-
-	public void _on_pick_up_range_area_entered(Area2D item){
-		pickableItem = (floorItems)item;
-	}
-
-	public void _on_pick_up_range_area_exited(Area2D item){
-		pickableItem = null;
 	}
 }
