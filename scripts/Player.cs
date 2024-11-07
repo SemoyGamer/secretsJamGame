@@ -104,6 +104,16 @@ public partial class Player : CharacterBody2D{
 			var itemToDropIns = (Area2D)itemToDrop.Instantiate();
 			itemToDropIns.Position = Position;
 			GetParent().AddChild(itemToDropIns);
+		}else if(iHolder.heldItem.itemName == "blower"){
+			var itemToDrop = GD.Load<PackedScene>("res://objects/itemObj/floorItems/blower_floor.tscn");
+			var itemToDropIns = (Area2D)itemToDrop.Instantiate();
+			itemToDropIns.Position = Position;
+			GetParent().AddChild(itemToDropIns);
+		}else if(iHolder.heldItem.itemName == "engine"){
+			var itemToDrop = GD.Load<PackedScene>("res://objects/itemObj/floorItems/engine_floor.tscn");
+			var itemToDropIns = (Area2D)itemToDrop.Instantiate();
+			itemToDropIns.Position = Position;
+			GetParent().AddChild(itemToDropIns);
 		}
 	}
 }

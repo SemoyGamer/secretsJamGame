@@ -29,6 +29,14 @@ public partial class ItemHolder : Node2D
 				var torchObj = GD.Load<PackedScene>("res://objects/itemObj/torch.tscn");
 				var torchIns = torchObj.Instantiate();
 				AddChild(torchIns);
+			}else if(heldItem.itemName == "blower"){
+				var blowerObj = GD.Load<PackedScene>("res://objects/itemObj/blower.tscn");
+				var blowerIns = blowerObj.Instantiate();
+				AddChild(blowerIns);
+			}else if(heldItem.itemName == "engine"){
+				var engineObj = GD.Load<PackedScene>("res://objects/itemObj/engine.tscn");
+				var engineIns = engineObj.Instantiate();
+				AddChild(engineIns);
 			}
 		}
 	}

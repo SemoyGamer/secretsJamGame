@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://c52nu1fllgt7n"]
+
+[ext_resource type="Texture2D" uid="uid://bhn4a7qawkdlh" path="res://sprites/items/engine.png" id="1_iwlih"]
+
+[node name="engine" type="Sprite2D"]
+texture = ExtResource("1_iwlih")
+centered = false
+offset = Vector2(-32, -48)

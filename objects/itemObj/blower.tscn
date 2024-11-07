@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://gxdagpkncvt7"]
+
+[ext_resource type="Texture2D" uid="uid://bdi4ky7tv5ub2" path="res://sprites/items/blower.png" id="1_43gb3"]
+
+[node name="blower" type="Sprite2D"]
+texture = ExtResource("1_43gb3")
+centered = false
+offset = Vector2(-14, -64)
