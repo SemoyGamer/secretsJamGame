@@ -114,6 +114,11 @@ public partial class Player : CharacterBody2D{
 			var itemToDropIns = (Area2D)itemToDrop.Instantiate();
 			itemToDropIns.Position = Position;
 			GetParent().AddChild(itemToDropIns);
+		}else if(iHolder.heldItem.itemName == "gunpowder"){
+			var itemToDrop = GD.Load<PackedScene>("res://objects/itemObj/floorItems/gunpowder_floor.tscn");
+			var itemToDropIns = (Area2D)itemToDrop.Instantiate();
+			itemToDropIns.Position = Position;
+			GetParent().AddChild(itemToDropIns);
 		}
 	}
 }

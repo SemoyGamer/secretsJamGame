@@ -37,6 +37,10 @@ public partial class ItemHolder : Node2D
 				var engineObj = GD.Load<PackedScene>("res://objects/itemObj/engine.tscn");
 				var engineIns = engineObj.Instantiate();
 				AddChild(engineIns);
+			}else if(heldItem.itemName == "gunpowder"){
+				var gunpowderObj = GD.Load<PackedScene>("res://objects/itemObj/gunpowder.tscn");
+				var gunpowderIns = gunpowderObj.Instantiate();
+				AddChild(gunpowderIns);
 			}
 		}
 	}

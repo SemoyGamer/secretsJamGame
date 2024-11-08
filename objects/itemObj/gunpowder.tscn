@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://c34gt6vch8vtq"]
+
+[ext_resource type="Texture2D" uid="uid://dr5joav1mcu1" path="res://sprites/items/gunpowder.png" id="1_qk85k"]
+
+[node name="gunpowder" type="Sprite2D"]
+texture = ExtResource("1_qk85k")
+centered = false
+offset = Vector2(-12, -20)

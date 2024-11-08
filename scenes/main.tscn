@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dxjfp7v5ui3iu"]
+[gd_scene load_steps=8 format=3 uid="uid://dxjfp7v5ui3iu"]
 
 [ext_resource type="Texture2D" uid="uid://dobu43qgbp825" path="res://icon.svg" id="1_kgj4g"]
 [ext_resource type="PackedScene" uid="uid://cw0cd3hrp7xf3" path="res://objects/player.tscn" id="1_udybp"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://ck1quuqn18qaf" path="res://objects/itemObj/floorItems/torch_floor.tscn" id="4_uu0mp"]
 [ext_resource type="PackedScene" uid="uid://b6viafw41x73r" path="res://objects/itemObj/floorItems/blower_floor.tscn" id="5_adxgn"]
 [ext_resource type="PackedScene" uid="uid://d16n00e1p5ru7" path="res://objects/itemObj/floorItems/engine_floor.tscn" id="6_fce7d"]
+[ext_resource type="PackedScene" uid="uid://m14o5bbpmvux" path="res://objects/itemObj/floorItems/gunpowder_floor.tscn" id="7_7ly3e"]
 
 [node name="main" type="Node2D"]
 
@@ -40,3 +41,6 @@ position = Vector2(832, 115)
 
 [node name="engineFloor" parent="." instance=ExtResource("6_fce7d")]
 position = Vector2(865, 281)
+
+[node name="gunpowderFloor" parent="." instance=ExtResource("7_7ly3e")]
+position = Vector2(510, 126)
