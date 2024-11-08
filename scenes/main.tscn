@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dxjfp7v5ui3iu"]
+[gd_scene load_steps=14 format=3 uid="uid://dxjfp7v5ui3iu"]
 
 [ext_resource type="Texture2D" uid="uid://dobu43qgbp825" path="res://icon.svg" id="1_kgj4g"]
 [ext_resource type="PackedScene" uid="uid://cw0cd3hrp7xf3" path="res://objects/player.tscn" id="1_udybp"]
@@ -7,6 +7,12 @@
 [ext_resource type="PackedScene" uid="uid://b6viafw41x73r" path="res://objects/itemObj/floorItems/blower_floor.tscn" id="5_adxgn"]
 [ext_resource type="PackedScene" uid="uid://d16n00e1p5ru7" path="res://objects/itemObj/floorItems/engine_floor.tscn" id="6_fce7d"]
 [ext_resource type="PackedScene" uid="uid://m14o5bbpmvux" path="res://objects/itemObj/floorItems/gunpowder_floor.tscn" id="7_7ly3e"]
+[ext_resource type="PackedScene" uid="uid://cymkenvx1erkf" path="res://objects/itemObj/floorItems/energy_stick_floor.tscn" id="8_tvq3l"]
+[ext_resource type="PackedScene" uid="uid://dd2dlpto57sm7" path="res://objects/itemObj/floorItems/heater_core_floor.tscn" id="9_pgk6k"]
+[ext_resource type="PackedScene" uid="uid://dlrrur6lipwhg" path="res://objects/itemObj/floorItems/snipper_floor.tscn" id="10_fvwcc"]
+[ext_resource type="PackedScene" uid="uid://cpgcntqj6xaj0" path="res://objects/itemObj/floorItems/ultra_fan_floor.tscn" id="11_gnu5o"]
+[ext_resource type="PackedScene" uid="uid://el4egwx5dm0" path="res://objects/itemObj/floorItems/bomb_floor.tscn" id="12_70ct7"]
+[ext_resource type="PackedScene" uid="uid://rxjrwqxwpcoa" path="res://objects/itemObj/floorItems/heat_stick_floor.tscn" id="13_6rmdw"]
 
 [node name="main" type="Node2D"]
 
@@ -24,18 +30,6 @@ position = Vector2(1262, 318)
 [node name="torchFloor3" parent="." instance=ExtResource("4_uu0mp")]
 position = Vector2(1142, 187)
 
-[node name="player" parent="." instance=ExtResource("1_udybp")]
-position = Vector2(618, 322)
-
-[node name="block" parent="." instance=ExtResource("2_1c4yu")]
-position = Vector2(1006, 574)
-scale = Vector2(-10.2705, 1.24961)
-
-[node name="block2" parent="." instance=ExtResource("2_1c4yu")]
-position = Vector2(1571, 261)
-rotation = -1.60041
-scale = Vector2(-10.2705, 1.24961)
-
 [node name="blowerFloor" parent="." instance=ExtResource("5_adxgn")]
 position = Vector2(832, 115)
 
@@ -44,3 +38,34 @@ position = Vector2(865, 281)
 
 [node name="gunpowderFloor" parent="." instance=ExtResource("7_7ly3e")]
 position = Vector2(510, 126)
+
+[node name="energyStickFloor" parent="." instance=ExtResource("8_tvq3l")]
+position = Vector2(991, 126)
+
+[node name="player" parent="." instance=ExtResource("1_udybp")]
+position = Vector2(618, 322)
+
+[node name="block" parent="." instance=ExtResource("2_1c4yu")]
+position = Vector2(1006, 574)
+rotation = 3.14159
+scale = Vector2(10.2705, -1.24961)
+
+[node name="block2" parent="." instance=ExtResource("2_1c4yu")]
+position = Vector2(1571, 261)
+rotation = 1.54118
+scale = Vector2(10.2705, -1.24961)
+
+[node name="heaterCoreFloor" parent="." instance=ExtResource("9_pgk6k")]
+position = Vector2(993, 264)
+
+[node name="snipperFloor" parent="." instance=ExtResource("10_fvwcc")]
+position = Vector2(355, 231)
+
+[node name="ultraFanFloor" parent="." instance=ExtResource("11_gnu5o")]
+position = Vector2(1309, 115)
+
+[node name="bombFloor" parent="." instance=ExtResource("12_70ct7")]
+position = Vector2(402, 382)
+
+[node name="heatStickFloor" parent="." instance=ExtResource("13_6rmdw")]
+position = Vector2(794, 404)

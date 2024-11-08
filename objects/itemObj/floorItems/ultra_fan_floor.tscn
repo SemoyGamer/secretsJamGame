@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://cpgcntqj6xaj0"]
+
+[ext_resource type="Script" path="res://scripts/itemCode/floorItems.cs" id="1_kuhnx"]
+[ext_resource type="PackedScene" uid="uid://cf8ets4sno3gd" path="res://objects/itemObj/ultra_fan.tscn" id="2_o2r8s"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u2vqr"]
+radius = 45.0111
+
+[node name="ultraFanFloor" type="Area2D"]
+collision_layer = 2
+script = ExtResource("1_kuhnx")
+itemName = "ultraFan"
+
+[node name="ultraFan" parent="." instance=ExtResource("2_o2r8s")]
+position = Vector2(0, -39)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -10)
+shape = SubResource("CircleShape2D_u2vqr")
+
+[connection signal="movementDone" from="." to="." method="_on_movement_done"]

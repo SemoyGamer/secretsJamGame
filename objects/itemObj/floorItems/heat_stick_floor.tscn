@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://rxjrwqxwpcoa"]
+
+[ext_resource type="Script" path="res://scripts/itemCode/floorItems.cs" id="1_spqpg"]
+[ext_resource type="PackedScene" uid="uid://bkfmrc6cfir2l" path="res://objects/itemObj/heat_stick.tscn" id="2_qlxk8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u2vqr"]
+radius = 45.0111
+
+[node name="heatStickFloor" type="Area2D"]
+collision_layer = 2
+script = ExtResource("1_spqpg")
+itemName = "heatStick"
+
+[node name="heatStick" parent="." instance=ExtResource("2_qlxk8")]
+position = Vector2(0, 12)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -10)
+shape = SubResource("CircleShape2D_u2vqr")
+
+[connection signal="movementDone" from="." to="." method="_on_movement_done"]

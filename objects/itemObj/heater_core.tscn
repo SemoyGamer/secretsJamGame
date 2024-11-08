@@ -1,0 +1,62 @@
+[gd_scene load_steps=10 format=3 uid="uid://bnluwcacuognl"]
+
+[ext_resource type="Texture2D" uid="uid://dpq67tve8yv5m" path="res://sprites/items/heaterCore.png" id="1_ww20f"]
+[ext_resource type="Script" path="res://scripts/animationPlayer.cs" id="2_ujxmk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kn11q"]
+atlas = ExtResource("1_ww20f")
+region = Rect2(0, 0, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n55ni"]
+atlas = ExtResource("1_ww20f")
+region = Rect2(24, 0, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xhyvr"]
+atlas = ExtResource("1_ww20f")
+region = Rect2(48, 0, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_521lt"]
+atlas = ExtResource("1_ww20f")
+region = Rect2(0, 32, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dsv5e"]
+atlas = ExtResource("1_ww20f")
+region = Rect2(24, 32, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ggfwg"]
+atlas = ExtResource("1_ww20f")
+region = Rect2(48, 32, 24, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ictmj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kn11q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n55ni")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xhyvr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_521lt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dsv5e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ggfwg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
+
+[node name="heaterCore" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_ictmj")
+frame = 5
+frame_progress = 0.705492
+centered = false
+offset = Vector2(-12, -24)
+script = ExtResource("2_ujxmk")

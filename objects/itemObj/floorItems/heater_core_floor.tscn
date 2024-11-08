@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://dd2dlpto57sm7"]
+
+[ext_resource type="Script" path="res://scripts/itemCode/floorItems.cs" id="1_1qlqv"]
+[ext_resource type="PackedScene" uid="uid://bnluwcacuognl" path="res://objects/itemObj/heater_core.tscn" id="2_c78q4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u2vqr"]
+radius = 45.0111
+
+[node name="heaterCoreFloor" type="Area2D"]
+collision_layer = 2
+script = ExtResource("1_1qlqv")
+itemName = "heaterCore"
+
+[node name="heaterCore" parent="." instance=ExtResource("2_c78q4")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -10)
+shape = SubResource("CircleShape2D_u2vqr")
+
+[connection signal="movementDone" from="." to="." method="_on_movement_done"]

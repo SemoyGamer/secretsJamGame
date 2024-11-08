@@ -1,0 +1,48 @@
+[gd_scene load_steps=8 format=3 uid="uid://cd3qcolhtge5r"]
+
+[ext_resource type="Texture2D" uid="uid://ck765l5rak46t" path="res://sprites/items/energyStick.png" id="1_v2clf"]
+[ext_resource type="Script" path="res://scripts/animationPlayer.cs" id="2_375x3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j8bxt"]
+atlas = ExtResource("1_v2clf")
+region = Rect2(0, 0, 12, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7qwff"]
+atlas = ExtResource("1_v2clf")
+region = Rect2(12, 0, 12, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xy4kw"]
+atlas = ExtResource("1_v2clf")
+region = Rect2(24, 0, 12, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i2jjb"]
+atlas = ExtResource("1_v2clf")
+region = Rect2(36, 0, 12, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4ejny"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j8bxt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7qwff")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xy4kw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i2jjb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
+
+[node name="energyStick" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_4ejny")
+frame = 2
+frame_progress = 0.0994392
+centered = false
+offset = Vector2(-6, -52)
+script = ExtResource("2_375x3")

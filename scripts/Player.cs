@@ -119,6 +119,36 @@ public partial class Player : CharacterBody2D{
 			var itemToDropIns = (Area2D)itemToDrop.Instantiate();
 			itemToDropIns.Position = Position;
 			GetParent().AddChild(itemToDropIns);
+		}else if(iHolder.heldItem.itemName == "energyStick"){
+			var itemToDrop = GD.Load<PackedScene>("res://objects/itemObj/floorItems/energy_stick_floor.tscn");
+			var itemToDropIns = (Area2D)itemToDrop.Instantiate();
+			itemToDropIns.Position = Position;
+			GetParent().AddChild(itemToDropIns);
+		}else if(iHolder.heldItem.itemName == "heaterCore"){
+			var itemToDrop = GD.Load<PackedScene>("res://objects/itemObj/floorItems/heater_core_floor.tscn");
+			var itemToDropIns = (Area2D)itemToDrop.Instantiate();
+			itemToDropIns.Position = Position;
+			GetParent().AddChild(itemToDropIns);
+		}else if(iHolder.heldItem.itemName == "snipper"){
+			var itemToDrop = GD.Load<PackedScene>("res://objects/itemObj/floorItems/snipper_floor.tscn");
+			var itemToDropIns = (Area2D)itemToDrop.Instantiate();
+			itemToDropIns.Position = Position;
+			GetParent().AddChild(itemToDropIns);
+		}else if(iHolder.heldItem.itemName == "ultraFan"){
+			var itemToDrop = GD.Load<PackedScene>("res://objects/itemObj/floorItems/ultra_fan_floor.tscn");
+			var itemToDropIns = (Area2D)itemToDrop.Instantiate();
+			itemToDropIns.Position = Position;
+			GetParent().AddChild(itemToDropIns);
+		}else if(iHolder.heldItem.itemName == "bomb"){
+			var itemToDrop = GD.Load<PackedScene>("res://objects/itemObj/floorItems/bomb_floor.tscn");
+			var itemToDropIns = (Area2D)itemToDrop.Instantiate();
+			itemToDropIns.Position = Position;
+			GetParent().AddChild(itemToDropIns);
+		}else if(iHolder.heldItem.itemName == "heatStick"){
+			var itemToDrop = GD.Load<PackedScene>("res://objects/itemObj/floorItems/heat_stick_floor.tscn");
+			var itemToDropIns = (Area2D)itemToDrop.Instantiate();
+			itemToDropIns.Position = Position;
+			GetParent().AddChild(itemToDropIns);
 		}
 	}
 }

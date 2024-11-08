@@ -1,0 +1,48 @@
+[gd_scene load_steps=8 format=3 uid="uid://bkfmrc6cfir2l"]
+
+[ext_resource type="Texture2D" uid="uid://bgd2bno8x5xy6" path="res://sprites/items/heatStick.png" id="1_fhfn4"]
+[ext_resource type="Script" path="res://scripts/animationPlayer.cs" id="2_ncam2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v5sk3"]
+atlas = ExtResource("1_fhfn4")
+region = Rect2(0, 0, 12, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oqdth"]
+atlas = ExtResource("1_fhfn4")
+region = Rect2(12, 0, 12, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bj1dl"]
+atlas = ExtResource("1_fhfn4")
+region = Rect2(24, 0, 12, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xicy5"]
+atlas = ExtResource("1_fhfn4")
+region = Rect2(36, 0, 12, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ytsou"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v5sk3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oqdth")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bj1dl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xicy5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[node name="heatStick" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_ytsou")
+frame = 2
+frame_progress = 0.772636
+centered = false
+offset = Vector2(-6, -52)
+script = ExtResource("2_ncam2")

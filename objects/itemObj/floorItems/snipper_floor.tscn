@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://dlrrur6lipwhg"]
+
+[ext_resource type="Script" path="res://scripts/itemCode/floorItems.cs" id="1_t5i2m"]
+[ext_resource type="PackedScene" uid="uid://cear2x7wka02q" path="res://objects/itemObj/snipper.tscn" id="2_abiq4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u2vqr"]
+radius = 45.0111
+
+[node name="snipperFloor" type="Area2D"]
+collision_layer = 2
+script = ExtResource("1_t5i2m")
+itemName = "snipper"
+
+[node name="snipper" parent="." instance=ExtResource("2_abiq4")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -10)
+shape = SubResource("CircleShape2D_u2vqr")
+
+[connection signal="movementDone" from="." to="." method="_on_movement_done"]

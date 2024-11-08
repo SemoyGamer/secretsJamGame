@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://el4egwx5dm0"]
+
+[ext_resource type="Script" path="res://scripts/itemCode/floorItems.cs" id="1_fgpql"]
+[ext_resource type="PackedScene" uid="uid://gt4mpitnvxbk" path="res://objects/itemObj/bomb.tscn" id="2_2qhsr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u2vqr"]
+radius = 45.0111
+
+[node name="bombFloor" type="Area2D"]
+collision_layer = 2
+script = ExtResource("1_fgpql")
+itemName = "bomb"
+
+[node name="bomb" parent="." instance=ExtResource("2_2qhsr")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -10)
+shape = SubResource("CircleShape2D_u2vqr")
+
+[connection signal="movementDone" from="." to="." method="_on_movement_done"]

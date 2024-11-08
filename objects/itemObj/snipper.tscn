@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cear2x7wka02q"]
+
+[ext_resource type="Texture2D" uid="uid://oi4q10e7mtyg" path="res://sprites/items/snippers.png" id="1_d8sb0"]
+
+[node name="snipper" type="Sprite2D"]
+texture = ExtResource("1_d8sb0")
+centered = false
+offset = Vector2(-10, -24)

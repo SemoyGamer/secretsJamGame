@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cf8ets4sno3gd"]
+
+[ext_resource type="Texture2D" uid="uid://bckg5r8fpfix2" path="res://sprites/items/ultraFan.png" id="1_1jeub"]
+
+[node name="ultraFan" type="Sprite2D"]
+texture = ExtResource("1_1jeub")
+centered = false
+offset = Vector2(-18, -4)

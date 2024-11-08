@@ -41,6 +41,30 @@ public partial class ItemHolder : Node2D
 				var gunpowderObj = GD.Load<PackedScene>("res://objects/itemObj/gunpowder.tscn");
 				var gunpowderIns = gunpowderObj.Instantiate();
 				AddChild(gunpowderIns);
+			}else if(heldItem.itemName == "energyStick"){
+				var eStickObj = GD.Load<PackedScene>("res://objects/itemObj/energy_stick.tscn");
+				var eStickIns = eStickObj.Instantiate();
+				AddChild(eStickIns);
+			}else if(heldItem.itemName == "heaterCore"){
+				var hCoreObj = GD.Load<PackedScene>("res://objects/itemObj/heater_core.tscn");
+				var hCoreIns = hCoreObj.Instantiate();
+				AddChild(hCoreIns);
+			}else if(heldItem.itemName == "snipper"){
+				var snipperObj = GD.Load<PackedScene>("res://objects/itemObj/snipper.tscn");
+				var snipperIns = snipperObj.Instantiate();
+				AddChild(snipperIns);
+			}else if(heldItem.itemName == "ultraFan"){
+				var uFanObj = GD.Load<PackedScene>("res://objects/itemObj/ultra_fan.tscn");
+				var uFanIns = uFanObj.Instantiate();
+				AddChild(uFanIns);
+			}else if(heldItem.itemName == "bomb"){
+				var bombObj = GD.Load<PackedScene>("res://objects/itemObj/bomb.tscn");
+				var bombIns = bombObj.Instantiate();
+				AddChild(bombIns);
+			}else if(heldItem.itemName == "heatStick"){
+				var hStickObj = GD.Load<PackedScene>("res://objects/itemObj/heat_stick.tscn");
+				var hStickIns = hStickObj.Instantiate();
+				AddChild(hStickIns);
 			}
 		}
 	}
