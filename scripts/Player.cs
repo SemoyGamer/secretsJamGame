@@ -7,6 +7,7 @@ public partial class Player : CharacterBody2D{
 	Vector2 direction;
 
 	AnimatedSprite2D playerSprite;
+	Timer craftTimer;
 
 	//smooth rotation values
 	public float _theta;
@@ -24,9 +25,13 @@ public partial class Player : CharacterBody2D{
 	public override void _Ready(){
 		//Add a value to some of the variables
 		playerSprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
+		craftTimer = GetNode<Timer>("craftTimer");
 
 		itemHolder1 = GetNode<ItemHolder>("itemHolder");
 		itemHolder2 = GetNode<ItemHolder>("itemHolder2");
+
+		//starts the craft timer
+		craftTimer.Start();
 	}
 
 	public override void _PhysicsProcess(double delta){
@@ -67,6 +72,15 @@ public partial class Player : CharacterBody2D{
 		if(Input.IsActionJustPressed("drop")){
 			dropItem();
 		}
+
+		//let the player use the craft button
+		if(itemHolder1.carryingItem && itemHolder2.carryingItem && Input.IsActionPressed("craft")){
+			craftTimer.Paused = false;
+		}else{
+			//resets the timer
+			craftTimer.WaitTime = 2.0f;
+			craftTimer.Paused = true;
+		}
 	}
 
 	public void pickUpItem(Area2D item){
@@ -95,6 +109,19 @@ public partial class Player : CharacterBody2D{
 				chooseItemToDrop(itemHolder2);
 				itemHolder2.deleteItem();
 			}
+		}
+	}
+
+	public void _on_craft_timer_timeout(){
+		craft();
+	}
+
+	public void craft(){
+		//check what the player is holding, then turn it into a new item
+		if((itemHolder1.heldItem.itemName == "blower" && itemHolder2.heldItem.itemName == "engine") || (itemHolder1.heldItem.itemName == "engine" && itemHolder2.heldItem.itemName == "blower")){
+			GD.Print("Crafted!");
+		}else{
+			GD.Print("Could not craft!");
 		}
 	}
 

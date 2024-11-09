@@ -24,12 +24,6 @@ texture = ExtResource("1_kgj4g")
 [node name="torchFloor" parent="." instance=ExtResource("4_uu0mp")]
 position = Vector2(1127, 345)
 
-[node name="torchFloor2" parent="." instance=ExtResource("4_uu0mp")]
-position = Vector2(1262, 318)
-
-[node name="torchFloor3" parent="." instance=ExtResource("4_uu0mp")]
-position = Vector2(1142, 187)
-
 [node name="blowerFloor" parent="." instance=ExtResource("5_adxgn")]
 position = Vector2(832, 115)
 
