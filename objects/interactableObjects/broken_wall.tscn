@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://b1m5hxv02tylg"]
+
+[ext_resource type="Texture2D" uid="uid://drr04vj267hee" path="res://sprites/interactableWall/brokenWall.png" id="1_a1jif"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yxdxs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_a1jif")
+}],
+"loop": true,
+"name": &"normal",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s8t51"]
+size = Vector2(128, 64)
+
+[node name="brokenWall" type="StaticBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_yxdxs")
+animation = &"normal"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_s8t51")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]

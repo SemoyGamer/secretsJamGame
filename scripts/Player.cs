@@ -17,6 +17,8 @@ public partial class Player : CharacterBody2D{
 	private ItemHolder itemHolder1;
 	private ItemHolder itemHolder2;
 	private floorItems pickableItem = null;
+	private Vector2 iHPos;
+	private Vector2 iHPos2;
 
 	//item holder signal
 	[Signal]
@@ -28,7 +30,9 @@ public partial class Player : CharacterBody2D{
 		craftTimer = GetNode<Timer>("craftTimer");
 
 		itemHolder1 = GetNode<ItemHolder>("itemHolder");
+		iHPos = itemHolder1.Position;
 		itemHolder2 = GetNode<ItemHolder>("itemHolder2");
+		iHPos2 = itemHolder2.Position;
 
 		//starts the craft timer
 		craftTimer.Start();
@@ -59,6 +63,15 @@ public partial class Player : CharacterBody2D{
 			pickableItem = (floorItems)GetNode<Area2D>("pickUpRange").GetOverlappingAreas()[0];
 		}else{
 			pickableItem = null;
+		}
+
+		//make the items shake in the players hand while crafting
+		if(!craftTimer.Paused){
+			itemHolder1.Position = new Vector2(iHPos.X + (float)GD.RandRange(-4.0f, 4.0f), iHPos.Y + (float)GD.RandRange(-4.0f, 4.0f));
+			itemHolder2.Position = new Vector2(iHPos2.X + (float)GD.RandRange(-4.0f, 4.0f), iHPos2.Y + (float)GD.RandRange(-4.0f, 4.0f));
+		}else{
+			itemHolder1.Position = iHPos;
+			itemHolder2.Position = iHPos2;
 		}
 	}
 
@@ -118,11 +131,34 @@ public partial class Player : CharacterBody2D{
 
 	public void craft(){
 		//check what the player is holding, then turn it into a new item
+		//craft the ultra fan
 		if((itemHolder1.heldItem.itemName == "blower" && itemHolder2.heldItem.itemName == "engine") || (itemHolder1.heldItem.itemName == "engine" && itemHolder2.heldItem.itemName == "blower")){
 			itemHolder1.deleteItem();
 			itemHolder2.deleteItem();
 
 			var newItem = (Area2D)GD.Load<PackedScene>("res://objects/itemObj/floorItems/ultra_fan_floor.tscn").Instantiate();
+			newItem.Position = Position;
+
+			GetParent().GetNode<Node2D>("floorItemLayer").AddChild(newItem);
+		}
+
+		//craft the bomb
+		if((itemHolder1.heldItem.itemName == "gunpowder" && itemHolder2.heldItem.itemName == "heaterCore") || (itemHolder1.heldItem.itemName == "heaterCore" && itemHolder2.heldItem.itemName == "gunpowder")){
+			itemHolder1.deleteItem();
+			itemHolder2.deleteItem();
+
+			var newItem = (Area2D)GD.Load<PackedScene>("res://objects/itemObj/floorItems/bomb_floor.tscn").Instantiate();
+			newItem.Position = Position;
+
+			GetParent().GetNode<Node2D>("floorItemLayer").AddChild(newItem);
+		}
+
+		//craft the heat stick
+		if((itemHolder1.heldItem.itemName == "heaterCore" && itemHolder2.heldItem.itemName == "energyStick") || (itemHolder1.heldItem.itemName == "energyStick" && itemHolder2.heldItem.itemName == "heaterCore")){
+			itemHolder1.deleteItem();
+			itemHolder2.deleteItem();
+
+			var newItem = (Area2D)GD.Load<PackedScene>("res://objects/itemObj/floorItems/heat_stick_floor.tscn").Instantiate();
 			newItem.Position = Position;
 
 			GetParent().GetNode<Node2D>("floorItemLayer").AddChild(newItem);
