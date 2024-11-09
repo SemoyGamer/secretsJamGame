@@ -21,20 +21,37 @@ position = Vector2(855, 433)
 scale = Vector2(8.62742, 2.88393)
 texture = ExtResource("1_kgj4g")
 
-[node name="torchFloor" parent="." instance=ExtResource("4_uu0mp")]
+[node name="floorItemLayer" type="Node2D" parent="."]
+
+[node name="torchFloor" parent="floorItemLayer" instance=ExtResource("4_uu0mp")]
 position = Vector2(1127, 345)
 
-[node name="blowerFloor" parent="." instance=ExtResource("5_adxgn")]
+[node name="blowerFloor" parent="floorItemLayer" instance=ExtResource("5_adxgn")]
 position = Vector2(832, 115)
 
-[node name="engineFloor" parent="." instance=ExtResource("6_fce7d")]
+[node name="engineFloor" parent="floorItemLayer" instance=ExtResource("6_fce7d")]
 position = Vector2(865, 281)
 
-[node name="gunpowderFloor" parent="." instance=ExtResource("7_7ly3e")]
+[node name="gunpowderFloor" parent="floorItemLayer" instance=ExtResource("7_7ly3e")]
 position = Vector2(510, 126)
 
-[node name="energyStickFloor" parent="." instance=ExtResource("8_tvq3l")]
+[node name="energyStickFloor" parent="floorItemLayer" instance=ExtResource("8_tvq3l")]
 position = Vector2(991, 126)
+
+[node name="heaterCoreFloor" parent="floorItemLayer" instance=ExtResource("9_pgk6k")]
+position = Vector2(993, 264)
+
+[node name="snipperFloor" parent="floorItemLayer" instance=ExtResource("10_fvwcc")]
+position = Vector2(355, 231)
+
+[node name="ultraFanFloor" parent="floorItemLayer" instance=ExtResource("11_gnu5o")]
+position = Vector2(1309, 115)
+
+[node name="bombFloor" parent="floorItemLayer" instance=ExtResource("12_70ct7")]
+position = Vector2(402, 382)
+
+[node name="heatStickFloor" parent="floorItemLayer" instance=ExtResource("13_6rmdw")]
+position = Vector2(794, 404)
 
 [node name="player" parent="." instance=ExtResource("1_udybp")]
 position = Vector2(618, 322)
@@ -48,18 +65,3 @@ scale = Vector2(10.2705, -1.24961)
 position = Vector2(1571, 261)
 rotation = 1.54118
 scale = Vector2(10.2705, -1.24961)
-
-[node name="heaterCoreFloor" parent="." instance=ExtResource("9_pgk6k")]
-position = Vector2(993, 264)
-
-[node name="snipperFloor" parent="." instance=ExtResource("10_fvwcc")]
-position = Vector2(355, 231)
-
-[node name="ultraFanFloor" parent="." instance=ExtResource("11_gnu5o")]
-position = Vector2(1309, 115)
-
-[node name="bombFloor" parent="." instance=ExtResource("12_70ct7")]
-position = Vector2(402, 382)
-
-[node name="heatStickFloor" parent="." instance=ExtResource("13_6rmdw")]
-position = Vector2(794, 404)

@@ -119,9 +119,13 @@ public partial class Player : CharacterBody2D{
 	public void craft(){
 		//check what the player is holding, then turn it into a new item
 		if((itemHolder1.heldItem.itemName == "blower" && itemHolder2.heldItem.itemName == "engine") || (itemHolder1.heldItem.itemName == "engine" && itemHolder2.heldItem.itemName == "blower")){
-			GD.Print("Crafted!");
-		}else{
-			GD.Print("Could not craft!");
+			itemHolder1.deleteItem();
+			itemHolder2.deleteItem();
+
+			var newItem = (Area2D)GD.Load<PackedScene>("res://objects/itemObj/floorItems/ultra_fan_floor.tscn").Instantiate();
+			newItem.Position = Position;
+
+			GetParent().GetNode<Node2D>("floorItemLayer").AddChild(newItem);
 		}
 	}
 
@@ -130,52 +134,52 @@ public partial class Player : CharacterBody2D{
 			var itemToDrop = GD.Load<PackedScene>("res://objects/itemObj/floorItems/torch_floor.tscn");
 			var itemToDropIns = (Area2D)itemToDrop.Instantiate();
 			itemToDropIns.Position = Position;
-			GetParent().AddChild(itemToDropIns);
+			GetParent().GetNode<Node2D>("floorItemLayer").AddChild(itemToDropIns);
 		}else if(iHolder.heldItem.itemName == "blower"){
 			var itemToDrop = GD.Load<PackedScene>("res://objects/itemObj/floorItems/blower_floor.tscn");
 			var itemToDropIns = (Area2D)itemToDrop.Instantiate();
 			itemToDropIns.Position = Position;
-			GetParent().AddChild(itemToDropIns);
+			GetParent().GetNode<Node2D>("floorItemLayer").AddChild(itemToDropIns);
 		}else if(iHolder.heldItem.itemName == "engine"){
 			var itemToDrop = GD.Load<PackedScene>("res://objects/itemObj/floorItems/engine_floor.tscn");
 			var itemToDropIns = (Area2D)itemToDrop.Instantiate();
 			itemToDropIns.Position = Position;
-			GetParent().AddChild(itemToDropIns);
+			GetParent().GetNode<Node2D>("floorItemLayer").AddChild(itemToDropIns);
 		}else if(iHolder.heldItem.itemName == "gunpowder"){
 			var itemToDrop = GD.Load<PackedScene>("res://objects/itemObj/floorItems/gunpowder_floor.tscn");
 			var itemToDropIns = (Area2D)itemToDrop.Instantiate();
 			itemToDropIns.Position = Position;
-			GetParent().AddChild(itemToDropIns);
+			GetParent().GetNode<Node2D>("floorItemLayer").AddChild(itemToDropIns);
 		}else if(iHolder.heldItem.itemName == "energyStick"){
 			var itemToDrop = GD.Load<PackedScene>("res://objects/itemObj/floorItems/energy_stick_floor.tscn");
 			var itemToDropIns = (Area2D)itemToDrop.Instantiate();
 			itemToDropIns.Position = Position;
-			GetParent().AddChild(itemToDropIns);
+			GetParent().GetNode<Node2D>("floorItemLayer").AddChild(itemToDropIns);
 		}else if(iHolder.heldItem.itemName == "heaterCore"){
 			var itemToDrop = GD.Load<PackedScene>("res://objects/itemObj/floorItems/heater_core_floor.tscn");
 			var itemToDropIns = (Area2D)itemToDrop.Instantiate();
 			itemToDropIns.Position = Position;
-			GetParent().AddChild(itemToDropIns);
+			GetParent().GetNode<Node2D>("floorItemLayer").AddChild(itemToDropIns);
 		}else if(iHolder.heldItem.itemName == "snipper"){
 			var itemToDrop = GD.Load<PackedScene>("res://objects/itemObj/floorItems/snipper_floor.tscn");
 			var itemToDropIns = (Area2D)itemToDrop.Instantiate();
 			itemToDropIns.Position = Position;
-			GetParent().AddChild(itemToDropIns);
+			GetParent().GetNode<Node2D>("floorItemLayer").AddChild(itemToDropIns);
 		}else if(iHolder.heldItem.itemName == "ultraFan"){
 			var itemToDrop = GD.Load<PackedScene>("res://objects/itemObj/floorItems/ultra_fan_floor.tscn");
 			var itemToDropIns = (Area2D)itemToDrop.Instantiate();
 			itemToDropIns.Position = Position;
-			GetParent().AddChild(itemToDropIns);
+			GetParent().GetNode<Node2D>("floorItemLayer").AddChild(itemToDropIns);
 		}else if(iHolder.heldItem.itemName == "bomb"){
 			var itemToDrop = GD.Load<PackedScene>("res://objects/itemObj/floorItems/bomb_floor.tscn");
 			var itemToDropIns = (Area2D)itemToDrop.Instantiate();
 			itemToDropIns.Position = Position;
-			GetParent().AddChild(itemToDropIns);
+			GetParent().GetNode<Node2D>("floorItemLayer").AddChild(itemToDropIns);
 		}else if(iHolder.heldItem.itemName == "heatStick"){
 			var itemToDrop = GD.Load<PackedScene>("res://objects/itemObj/floorItems/heat_stick_floor.tscn");
 			var itemToDropIns = (Area2D)itemToDrop.Instantiate();
 			itemToDropIns.Position = Position;
-			GetParent().AddChild(itemToDropIns);
+			GetParent().GetNode<Node2D>("floorItemLayer").AddChild(itemToDropIns);
 		}
 	}
 }
