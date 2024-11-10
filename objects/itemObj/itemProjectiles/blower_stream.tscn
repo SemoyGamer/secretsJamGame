@@ -1,7 +1,107 @@
-[gd_scene load_steps=2 format=3 uid="uid://p77bl1qa6rwb"]
+[gd_scene load_steps=17 format=3 uid="uid://p77bl1qa6rwb"]
+
+[ext_resource type="Texture2D" uid="uid://b05omlt1qs3de" path="res://sprites/projectile/windStraight.png" id="1_tdk3g"]
+[ext_resource type="Texture2D" uid="uid://baodj16s18xsg" path="res://sprites/projectile/blownOver.png" id="1_ul52l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0vgai"]
 size = Vector2(64, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lgx4t"]
+atlas = ExtResource("1_ul52l")
+region = Rect2(0, 0, 80, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r00ja"]
+atlas = ExtResource("1_ul52l")
+region = Rect2(80, 0, 80, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ntvde"]
+atlas = ExtResource("1_ul52l")
+region = Rect2(0, 48, 80, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v0ey6"]
+atlas = ExtResource("1_ul52l")
+region = Rect2(80, 48, 80, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uv5oc"]
+atlas = ExtResource("1_ul52l")
+region = Rect2(0, 96, 80, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ag3m"]
+atlas = ExtResource("1_tdk3g")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8i7fc"]
+atlas = ExtResource("1_tdk3g")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xnfug"]
+atlas = ExtResource("1_tdk3g")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sqqst"]
+atlas = ExtResource("1_tdk3g")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kbpvn"]
+atlas = ExtResource("1_tdk3g")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ksta0"]
+atlas = ExtResource("1_tdk3g")
+region = Rect2(128, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4uqfs"]
+atlas = ExtResource("1_tdk3g")
+region = Rect2(0, 128, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xyr0o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lgx4t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r00ja")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ntvde")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v0ey6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uv5oc")
+}],
+"loop": false,
+"name": &"hit",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ag3m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8i7fc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xnfug")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sqqst")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kbpvn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ksta0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4uqfs")
+}],
+"loop": true,
+"name": &"straight",
+"speed": 4.0
+}]
 
 [node name="blowerStream" type="Area2D"]
 collision_layer = 4
@@ -9,3 +109,9 @@ collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_0vgai")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 22)
+sprite_frames = SubResource("SpriteFrames_xyr0o")
+animation = &"straight"
+autoplay = "straight"

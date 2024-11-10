@@ -72,4 +72,4 @@ rotation = 1.54118
 scale = Vector2(10.2705, -1.24961)
 
 [node name="blowerStream" parent="." instance=ExtResource("15_wkxt7")]
-position = Vector2(587, 25)
+position = Vector2(833, 7)
