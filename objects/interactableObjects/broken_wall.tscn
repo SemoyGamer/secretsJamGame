@@ -1,31 +1,75 @@
-[gd_scene load_steps=4 format=3 uid="uid://b1m5hxv02tylg"]
+[gd_scene load_steps=11 format=3 uid="uid://b1m5hxv02tylg"]
 
 [ext_resource type="Texture2D" uid="uid://drr04vj267hee" path="res://sprites/interactableWall/brokenWall.png" id="1_a1jif"]
+[ext_resource type="Texture2D" uid="uid://uvfc1uctmda0" path="res://sprites/interactableWall/brokenWallFade.png" id="1_fanhg"]
+[ext_resource type="Script" path="res://scripts/mapInteractable/BrokenWall.cs" id="1_iu52a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s8t51"]
+size = Vector2(128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a3t5w"]
+atlas = ExtResource("1_fanhg")
+region = Rect2(0, 0, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7gldn"]
+atlas = ExtResource("1_fanhg")
+region = Rect2(0, 64, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3acwo"]
+atlas = ExtResource("1_fanhg")
+region = Rect2(0, 128, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_voaxd"]
+atlas = ExtResource("1_fanhg")
+region = Rect2(0, 192, 128, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_yxdxs"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a3t5w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7gldn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3acwo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_voaxd")
+}],
+"loop": false,
+"name": &"fade",
+"speed": 4.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("1_a1jif")
 }],
 "loop": true,
 "name": &"normal",
-"speed": 5.0
+"speed": 0.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_s8t51"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j7wdd"]
 size = Vector2(128, 64)
 
 [node name="brokenWall" type="StaticBody2D"]
+script = ExtResource("1_iu52a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_s8t51")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_yxdxs")
 animation = &"normal"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_s8t51")
-
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 4
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_j7wdd")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

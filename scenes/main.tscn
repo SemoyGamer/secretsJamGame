@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dxjfp7v5ui3iu"]
+[gd_scene load_steps=16 format=3 uid="uid://dxjfp7v5ui3iu"]
 
 [ext_resource type="Texture2D" uid="uid://dobu43qgbp825" path="res://icon.svg" id="1_kgj4g"]
 [ext_resource type="PackedScene" uid="uid://cw0cd3hrp7xf3" path="res://objects/player.tscn" id="1_udybp"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://el4egwx5dm0" path="res://objects/itemObj/floorItems/bomb_floor.tscn" id="12_70ct7"]
 [ext_resource type="PackedScene" uid="uid://rxjrwqxwpcoa" path="res://objects/itemObj/floorItems/heat_stick_floor.tscn" id="13_6rmdw"]
 [ext_resource type="PackedScene" uid="uid://b1m5hxv02tylg" path="res://objects/interactableObjects/broken_wall.tscn" id="14_orkic"]
+[ext_resource type="PackedScene" uid="uid://p77bl1qa6rwb" path="res://objects/itemObj/itemProjectiles/blower_stream.tscn" id="15_wkxt7"]
 
 [node name="main" type="Node2D"]
 
@@ -69,3 +70,6 @@ scale = Vector2(10.2705, -1.24961)
 position = Vector2(1571, 261)
 rotation = 1.54118
 scale = Vector2(10.2705, -1.24961)
+
+[node name="blowerStream" parent="." instance=ExtResource("15_wkxt7")]
+position = Vector2(587, 25)
