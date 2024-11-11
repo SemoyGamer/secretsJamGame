@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dxjfp7v5ui3iu"]
+[gd_scene load_steps=17 format=3 uid="uid://dxjfp7v5ui3iu"]
 
 [ext_resource type="Texture2D" uid="uid://dobu43qgbp825" path="res://icon.svg" id="1_kgj4g"]
 [ext_resource type="PackedScene" uid="uid://cw0cd3hrp7xf3" path="res://objects/player.tscn" id="1_udybp"]
@@ -14,6 +14,8 @@
 [ext_resource type="PackedScene" uid="uid://el4egwx5dm0" path="res://objects/itemObj/floorItems/bomb_floor.tscn" id="12_70ct7"]
 [ext_resource type="PackedScene" uid="uid://rxjrwqxwpcoa" path="res://objects/itemObj/floorItems/heat_stick_floor.tscn" id="13_6rmdw"]
 [ext_resource type="PackedScene" uid="uid://b1m5hxv02tylg" path="res://objects/interactableObjects/broken_wall.tscn" id="14_orkic"]
+[ext_resource type="PackedScene" uid="uid://d1j0q5xlqb3gu" path="res://objects/playerObjects/checkpoint.tscn" id="15_3ts1w"]
+[ext_resource type="PackedScene" uid="uid://jlmt64tq6igh" path="res://objects/playerObjects/fall_area.tscn" id="16_lrpmp"]
 
 [node name="main" type="Node2D"]
 
@@ -75,3 +77,11 @@ scale = Vector2(10.2705, -1.24961)
 position = Vector2(1571, 261)
 rotation = 1.54118
 scale = Vector2(10.2705, -1.24961)
+
+[node name="checkpoint" parent="." instance=ExtResource("15_3ts1w")]
+position = Vector2(214, 304)
+scale = Vector2(1.48274, 8.60634)
+
+[node name="fallArea" parent="." instance=ExtResource("16_lrpmp")]
+position = Vector2(124, 296)
+scale = Vector2(1, 8.4)

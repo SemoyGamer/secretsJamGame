@@ -6,10 +6,13 @@ public partial class Player : CharacterBody2D{
 
 	Vector2 direction;
 	private bool canMove = true;
+	private bool dashing = false;
+	private bool died = false;
 
 	AnimatedSprite2D playerSprite;
 	Timer craftTimer;
 	Timer fanDashTimer;
+	Timer respawnTimer;
 
 	//smooth rotation values
 	public float _theta;
@@ -31,6 +34,7 @@ public partial class Player : CharacterBody2D{
 		playerSprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
 		craftTimer = GetNode<Timer>("craftTimer");
 		fanDashTimer = GetNode<Timer>("fanDashTimer");
+		respawnTimer = GetNode<Timer>("respawnTimer");
 
 		itemHolder1 = GetNode<ItemHolder>("itemHolder");
 		iHPos = itemHolder1.Position;
@@ -60,7 +64,9 @@ public partial class Player : CharacterBody2D{
 			_theta = Mathf.Wrap(Mathf.Atan2(direction.Y, direction.X) - Rotation + Mathf.Pi / 2, -Mathf.Pi, Mathf.Pi);
 			Rotation += Mathf.Clamp(rotationSpeed * (float)delta, 0, Mathf.Abs(_theta)) * Mathf.Sign(_theta);
 		}else{
-			velocity = Vector2.Zero;
+			if(!dashing){
+				velocity = Vector2.Zero;
+			}
 			playerSprite.Play("idle");
 		}
 
@@ -86,9 +92,16 @@ public partial class Player : CharacterBody2D{
 		//dash code
 		if(fanDashTimer.TimeLeft > 0){
 			canMove = false;
-			velocity = new Vector2(0, -50).Rotated(Rotation);
+			dashing = true;
+			Velocity = new Vector2(0, -1000).Rotated(Rotation);
 		}else{
 			canMove = true;
+			dashing = false;
+		}
+
+		//death
+		if(died){
+			canMove = false;
 		}
 	}
 
@@ -216,6 +229,25 @@ public partial class Player : CharacterBody2D{
 
 			GetParent().GetNode<Node2D>("floorItemLayer").AddChild(newItem);
 		}
+	}
+
+	public void _on_fall_area_area_entered(Area2D area){
+		var pVariables = GetNode<GlobalVariables>("/root/GlobalVariables");
+		//set the player's checkpoint
+		if(area.CollisionLayer == 8){
+			pVariables.pSpawnPoint = area.Position;
+		}
+
+		//make the player respawn at the last checkpoint
+		if(area.CollisionLayer == 16){
+			respawnTimer.Start();
+			Position = pVariables.pSpawnPoint;
+			died = true;
+		}
+	}
+
+	public void _on_respawn_timer_timeout(){
+		died = false;
 	}
 
 	public void chooseItemToDrop(ItemHolder iHolder){

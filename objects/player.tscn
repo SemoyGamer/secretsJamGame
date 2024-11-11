@@ -91,9 +91,21 @@ shape = SubResource("CircleShape2D_ekjsh")
 wait_time = 1.6
 
 [node name="fanDashTimer" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 0.25
 one_shot = true
+
+[node name="respawnTimer" type="Timer" parent="."]
+wait_time = 4.0
+one_shot = true
+
+[node name="fallArea" type="Area2D" parent="."]
+collision_mask = 24
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="fallArea"]
+shape = SubResource("CircleShape2D_qy1uq")
 
 [connection signal="itemChanged" from="." to="itemHolder" method="_on_player_item_changed"]
 [connection signal="itemChanged" from="." to="itemHolder2" method="_on_player_item_changed"]
 [connection signal="timeout" from="craftTimer" to="." method="_on_craft_timer_timeout"]
+[connection signal="timeout" from="respawnTimer" to="." method="_on_respawn_timer_timeout"]
+[connection signal="area_entered" from="fallArea" to="." method="_on_fall_area_area_entered"]
