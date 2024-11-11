@@ -10,6 +10,7 @@ radius = 45.0111
 collision_layer = 2
 script = ExtResource("1_fgpql")
 itemName = "bomb"
+usable = true
 
 [node name="bomb" parent="." instance=ExtResource("2_2qhsr")]
 

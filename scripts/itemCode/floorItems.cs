@@ -13,6 +13,9 @@ public partial class floorItems : Area2D
 	[Export]
 	public String itemName{ get; set;}
 
+	[Export]
+	public bool usable{ get; set;}
+
 	public override void _Ready(){
 		StartingPos = Position;
 		objectUp();

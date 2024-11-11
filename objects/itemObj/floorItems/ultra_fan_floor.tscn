@@ -10,6 +10,7 @@ radius = 45.0111
 collision_layer = 2
 script = ExtResource("1_kuhnx")
 itemName = "ultraFan"
+usable = true
 
 [node name="ultraFan" parent="." instance=ExtResource("2_o2r8s")]
 position = Vector2(0, -39)

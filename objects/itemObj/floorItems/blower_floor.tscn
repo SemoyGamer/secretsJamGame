@@ -10,6 +10,7 @@ radius = 45.0111
 collision_layer = 2
 script = ExtResource("1_na43o")
 itemName = "blower"
+usable = true
 
 [node name="blower" parent="." instance=ExtResource("2_3yw4v")]
 position = Vector2(0, 23)

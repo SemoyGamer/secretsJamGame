@@ -10,6 +10,7 @@ radius = 45.0111
 collision_layer = 2
 script = ExtResource("1_t5i2m")
 itemName = "snipper"
+usable = true
 
 [node name="snipper" parent="." instance=ExtResource("2_abiq4")]
 

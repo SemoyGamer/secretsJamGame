@@ -94,6 +94,31 @@ public partial class Player : CharacterBody2D{
 			craftTimer.WaitTime = 2.0f;
 			craftTimer.Paused = true;
 		}
+
+		//using items code
+		if(itemHolder1.carryingItem && !itemHolder2.carryingItem){
+			if(Input.IsActionJustPressed("use")){
+				//blower usage
+				if(itemHolder1.heldItem.itemName == "blower"){
+					itemHolder1.GetNode<Blower>("blower").shoot();
+				}
+			}
+		}else if(itemHolder1.carryingItem && itemHolder2.carryingItem){
+			if(Input.IsActionJustPressed("use")){
+				//check if the first hand's item is usable, if not, use the second hand item;
+				if(itemHolder1.heldItem.usable){
+					//blower usage
+					if(itemHolder1.heldItem.itemName == "blower"){
+						itemHolder1.GetNode<Blower>("blower").shoot();
+					}
+				}else{
+					//blower usage
+					if(itemHolder2.heldItem.itemName == "blower"){
+						itemHolder2.GetNode<Blower>("blower").shoot();
+					}
+				}
+			}
+		}
 	}
 
 	public void pickUpItem(Area2D item){
