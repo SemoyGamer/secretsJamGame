@@ -5,9 +5,11 @@ public partial class Player : CharacterBody2D{
 	public const float Speed = 400.0f;
 
 	Vector2 direction;
+	private bool canMove = true;
 
 	AnimatedSprite2D playerSprite;
 	Timer craftTimer;
+	Timer fanDashTimer;
 
 	//smooth rotation values
 	public float _theta;
@@ -28,6 +30,7 @@ public partial class Player : CharacterBody2D{
 		//Add a value to some of the variables
 		playerSprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
 		craftTimer = GetNode<Timer>("craftTimer");
+		fanDashTimer = GetNode<Timer>("fanDashTimer");
 
 		itemHolder1 = GetNode<ItemHolder>("itemHolder");
 		iHPos = itemHolder1.Position;
@@ -42,9 +45,15 @@ public partial class Player : CharacterBody2D{
 		Vector2 velocity = Velocity;
 
 		//get input direction and move the player, also play the walk and idle animations
-		direction = Input.GetVector("left", "right", "up", "down");
+		if(canMove){
+			direction = Input.GetVector("left", "right", "up", "down");
+		}else{
+			direction = Vector2.Zero;
+		}
+		
 		if (direction != Vector2.Zero){
 			velocity = direction.Normalized() * Speed;
+			
 			playerSprite.Play("walking");
 
 			//player rotation
@@ -72,6 +81,14 @@ public partial class Player : CharacterBody2D{
 		}else{
 			itemHolder1.Position = iHPos;
 			itemHolder2.Position = iHPos2;
+		}
+
+		//dash code
+		if(fanDashTimer.TimeLeft > 0){
+			canMove = false;
+			velocity = new Vector2(0, -50).Rotated(Rotation);
+		}else{
+			canMove = true;
 		}
 	}
 
@@ -102,20 +119,31 @@ public partial class Player : CharacterBody2D{
 				if(itemHolder1.heldItem.itemName == "blower"){
 					itemHolder1.GetNode<Blower>("blower").shoot();
 				}
+
+				//ultra Fan usage
+				if(itemHolder1.heldItem.itemName == "ultraFan"){
+					fanDashTimer.Start();
+				}
 			}
 		}else if(itemHolder1.carryingItem && itemHolder2.carryingItem){
+			var handToUse = itemHolder1;
 			if(Input.IsActionJustPressed("use")){
-				//check if the first hand's item is usable, if not, use the second hand item;
-				if(itemHolder1.heldItem.usable){
-					//blower usage
-					if(itemHolder1.heldItem.itemName == "blower"){
-						itemHolder1.GetNode<Blower>("blower").shoot();
-					}
-				}else{
-					//blower usage
-					if(itemHolder2.heldItem.itemName == "blower"){
-						itemHolder2.GetNode<Blower>("blower").shoot();
-					}
+				//if both hands are usable, use the first hand
+				if(itemHolder1.heldItem.usable && itemHolder2.heldItem.usable){
+					handToUse = itemHolder1;
+				}else if(itemHolder1.heldItem.usable && !itemHolder2.heldItem.usable){
+					//if hand one is only usable, use it
+					handToUse = itemHolder1;
+				}else if(!itemHolder1.heldItem.usable && itemHolder2.heldItem.usable){
+					//if hand two is only usable, use it
+					handToUse = itemHolder2;
+				}
+
+				//blower usage
+				if(handToUse.heldItem.itemName == "blower"){
+					handToUse.GetNode<Blower>("blower").shoot();
+				}else if(handToUse.heldItem.itemName == "ultraFan"){
+					fanDashTimer.Start();
 				}
 			}
 		}
