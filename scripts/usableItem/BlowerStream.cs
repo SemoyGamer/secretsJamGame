@@ -17,6 +17,11 @@ public partial class BlowerStream : Area2D
 		GetNode<AnimatedSprite2D>("AnimatedSprite2D").Play("hit");
 	}
 
+	public void _on_body_entered(Node2D body){
+		hit = true;
+		GetNode<AnimatedSprite2D>("AnimatedSprite2D").Play("hit");
+	}
+
 	public void _on_animated_sprite_2d_animation_finished(){
 		QueueFree();
 	}

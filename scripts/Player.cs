@@ -140,7 +140,7 @@ public partial class Player : CharacterBody2D{
 				
 				//bomb usage
 				if(itemHolder1.heldItem.itemName == "bomb"){
-					var setBomb = (Node2D)GD.Load<PackedScene>("res://objects/interactableObjects/set_bomb.tscn").Instantiate();
+					var setBomb = (Node2D)GD.Load<PackedScene>("res://objects/itemObj/itemProjectiles/set_bomb.tscn").Instantiate();
 					setBomb.Position = Position;
 					GetTree().Root.AddChild(setBomb);
 
@@ -168,7 +168,7 @@ public partial class Player : CharacterBody2D{
 					//ultra fan usage
 					fanDashTimer.Start();
 				}else if(handToUse.heldItem.itemName == "bomb"){
-					var setBomb = (Node2D)GD.Load<PackedScene>("res://objects/interactableObjects/set_bomb.tscn").Instantiate();
+					var setBomb = (Node2D)GD.Load<PackedScene>("res://objects/itemObj/itemProjectiles/set_bomb.tscn").Instantiate();
 					setBomb.Position = Position;
 					GetTree().Root.AddChild(setBomb);
 
@@ -189,7 +189,7 @@ public partial class Player : CharacterBody2D{
 					
 				//bomb usage
 				if(itemHolder2.heldItem.itemName == "bomb"){
-					var setBomb = (Node2D)GD.Load<PackedScene>("res://objects/interactableObjects/set_bomb.tscn").Instantiate();
+					var setBomb = (Node2D)GD.Load<PackedScene>("res://objects/itemObj/itemProjectiles/set_bomb.tscn").Instantiate();
 					setBomb.Position = Position;
 					GetTree().Root.AddChild(setBomb);
 
