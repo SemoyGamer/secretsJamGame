@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dxjfp7v5ui3iu"]
+[gd_scene load_steps=17 format=3 uid="uid://dxjfp7v5ui3iu"]
 
 [ext_resource type="Texture2D" uid="uid://dobu43qgbp825" path="res://icon.svg" id="1_kgj4g"]
 [ext_resource type="PackedScene" uid="uid://cw0cd3hrp7xf3" path="res://objects/player.tscn" id="1_udybp"]
@@ -13,7 +13,9 @@
 [ext_resource type="PackedScene" uid="uid://cpgcntqj6xaj0" path="res://objects/itemObj/floorItems/ultra_fan_floor.tscn" id="11_gnu5o"]
 [ext_resource type="PackedScene" uid="uid://el4egwx5dm0" path="res://objects/itemObj/floorItems/bomb_floor.tscn" id="12_70ct7"]
 [ext_resource type="PackedScene" uid="uid://rxjrwqxwpcoa" path="res://objects/itemObj/floorItems/heat_stick_floor.tscn" id="13_6rmdw"]
+[ext_resource type="PackedScene" uid="uid://rtrmy27erek2" path="res://objects/interactableObjects/weak_wall.tscn" id="13_b826e"]
 [ext_resource type="PackedScene" uid="uid://b1m5hxv02tylg" path="res://objects/interactableObjects/broken_wall.tscn" id="14_orkic"]
+[ext_resource type="PackedScene" uid="uid://dollddxx7kvtd" path="res://objects/interactableObjects/plant_wall.tscn" id="16_u2lxv"]
 
 [node name="main" type="Node2D"]
 
@@ -62,6 +64,15 @@ position = Vector2(695, 108)
 
 [node name="brokenWall2" parent="." instance=ExtResource("14_orkic")]
 position = Vector2(567, 108)
+
+[node name="plantWall" parent="." instance=ExtResource("16_u2lxv")]
+position = Vector2(163, 108)
+
+[node name="weakWall" parent="." instance=ExtResource("13_b826e")]
+position = Vector2(163, 236)
+
+[node name="weakWall2" parent="." instance=ExtResource("13_b826e")]
+position = Vector2(163, 364)
 
 [node name="player" parent="." instance=ExtResource("1_udybp")]
 position = Vector2(618, 322)

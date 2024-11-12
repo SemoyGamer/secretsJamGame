@@ -146,6 +146,11 @@ public partial class Player : CharacterBody2D{
 
 					itemHolder1.deleteItem();
 				}
+
+				//snipper usage
+				if(itemHolder1.heldItem.itemName == "snipper"){
+					itemHolder1.GetNode<Snipper>("snipper").snip();
+				}
 			}
 		}else if(itemHolder1.carryingItem && itemHolder2.carryingItem){
 			var handToUse = itemHolder1;
@@ -168,11 +173,14 @@ public partial class Player : CharacterBody2D{
 					//ultra fan usage
 					fanDashTimer.Start();
 				}else if(handToUse.heldItem.itemName == "bomb"){
+					//bomb usage
 					var setBomb = (Node2D)GD.Load<PackedScene>("res://objects/itemObj/itemProjectiles/set_bomb.tscn").Instantiate();
 					setBomb.Position = Position;
 					GetTree().Root.AddChild(setBomb);
 
 					handToUse.deleteItem();
+				}else if(handToUse.heldItem.itemName == "snipper"){
+					handToUse.GetNode<Snipper>("snipper").snip();
 				}
 			}
 		}else if(!itemHolder1.carryingItem && itemHolder2.carryingItem){
@@ -194,6 +202,11 @@ public partial class Player : CharacterBody2D{
 					GetTree().Root.AddChild(setBomb);
 
 					itemHolder2.deleteItem();
+				}
+
+				//snipper usage
+				if(itemHolder2.heldItem.itemName == "snipper"){
+					itemHolder2.GetNode<Snipper>("snipper").snip();
 				}
 			}
 		}

@@ -1,8 +1,25 @@
-[gd_scene load_steps=2 format=3 uid="uid://cear2x7wka02q"]
+[gd_scene load_steps=4 format=3 uid="uid://cear2x7wka02q"]
 
 [ext_resource type="Texture2D" uid="uid://oi4q10e7mtyg" path="res://sprites/items/snippers.png" id="1_d8sb0"]
+[ext_resource type="Script" path="res://scripts/usableItem/Snipper.cs" id="2_0ym0h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sct6m"]
+size = Vector2(66, 39)
 
 [node name="snipper" type="Sprite2D"]
 texture = ExtResource("1_d8sb0")
 centered = false
 offset = Vector2(-10, -24)
+script = ExtResource("2_0ym0h")
+
+[node name="plantDetector" type="Area2D" parent="."]
+collision_layer = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="plantDetector"]
+position = Vector2(0, -27.5)
+shape = SubResource("RectangleShape2D_sct6m")
+
+[node name="snipTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="snipTimer" to="." method="_on_snip_timer_timeout"]

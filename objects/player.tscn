@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cw0cd3hrp7xf3"]
+[gd_scene load_steps=12 format=3 uid="uid://cw0cd3hrp7xf3"]
 
 [ext_resource type="Script" path="res://scripts/Player.cs" id="1_d4ad3"]
 [ext_resource type="Texture2D" uid="uid://djx460pwqphct" path="res://sprites/player/playerIdle.png" id="2_e8xhw"]
@@ -52,9 +52,6 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_qy1uq"]
 radius = 36.0
 
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_vr0gu"]
-polygon = PackedVector2Array(-3, -9, -3, -8, -5, -8, -5, -7, -6, -7, -6, -6, -7, -6, -7, -5, -8, -5, -8, -3, -9, -3, -9, 3, -8, 3, -8, 5, -7, 5, -7, 6, -6, 6, -6, 7, -5, 7, -5, 8, -3, 8, -3, 9, 3, 9, 3, 8, 5, 8, 5, 7, 6, 7, 6, 6, 7, 6, 7, 5, 8, 5, 8, 3, 9, 3, 9, -3, 8, -3, 8, -5, 7, -5, 7, -6, 6, -6, 6, -7, 5, -7, 5, -8, 3, -8, 3, -9)
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_ekjsh"]
 radius = 119.004
 
@@ -70,10 +67,6 @@ animation = &"idle"
 shape = SubResource("CircleShape2D_qy1uq")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-
-[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
-scale = Vector2(4, 4)
-occluder = SubResource("OccluderPolygon2D_vr0gu")
 
 [node name="itemHolder" parent="." instance=ExtResource("4_7qucp")]
 position = Vector2(50, -16)

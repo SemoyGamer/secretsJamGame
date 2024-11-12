@@ -1,0 +1,80 @@
+[gd_scene load_steps=12 format=3 uid="uid://rtrmy27erek2"]
+
+[ext_resource type="Script" path="res://scripts/mapInteractable/WeakWall.cs" id="1_6q0rb"]
+[ext_resource type="Texture2D" uid="uid://cenqfj80r1gow" path="res://sprites/interactableWall/weakWall.png" id="1_vaje0"]
+[ext_resource type="Texture2D" uid="uid://bifm7tuso4iy1" path="res://sprites/interactableWall/weakWallFade.png" id="3_8ew14"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kqsvk"]
+atlas = ExtResource("3_8ew14")
+region = Rect2(0, 0, 16, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_td4u2"]
+atlas = ExtResource("3_8ew14")
+region = Rect2(16, 0, 16, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5bri0"]
+atlas = ExtResource("3_8ew14")
+region = Rect2(32, 0, 16, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ibwd"]
+atlas = ExtResource("3_8ew14")
+region = Rect2(48, 0, 16, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j6wr3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_vaje0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kqsvk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_td4u2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5bri0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ibwd")
+}],
+"loop": false,
+"name": &"fading",
+"speed": 6.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wk5m1"]
+size = Vector2(16, 128)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_xl5w7"]
+polygon = PackedVector2Array(-8, -64, 8, -64, 8, 64, -8, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b01dn"]
+size = Vector2(16, 128)
+
+[node name="weakWall" type="StaticBody2D"]
+script = ExtResource("1_6q0rb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_j6wr3")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_wk5m1")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_xl5w7")
+
+[node name="killerArea" type="Area2D" parent="."]
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="killerArea"]
+shape = SubResource("RectangleShape2D_b01dn")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="area_entered" from="killerArea" to="." method="_on_killer_area_area_entered"]
