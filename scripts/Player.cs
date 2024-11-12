@@ -137,6 +137,15 @@ public partial class Player : CharacterBody2D{
 				if(itemHolder1.heldItem.itemName == "ultraFan"){
 					fanDashTimer.Start();
 				}
+				
+				//bomb usage
+				if(itemHolder1.heldItem.itemName == "bomb"){
+					var setBomb = (Node2D)GD.Load<PackedScene>("res://objects/interactableObjects/set_bomb.tscn").Instantiate();
+					setBomb.Position = Position;
+					GetTree().Root.AddChild(setBomb);
+
+					itemHolder1.deleteItem();
+				}
 			}
 		}else if(itemHolder1.carryingItem && itemHolder2.carryingItem){
 			var handToUse = itemHolder1;
@@ -156,7 +165,35 @@ public partial class Player : CharacterBody2D{
 				if(handToUse.heldItem.itemName == "blower"){
 					handToUse.GetNode<Blower>("blower").shoot();
 				}else if(handToUse.heldItem.itemName == "ultraFan"){
+					//ultra fan usage
 					fanDashTimer.Start();
+				}else if(handToUse.heldItem.itemName == "bomb"){
+					var setBomb = (Node2D)GD.Load<PackedScene>("res://objects/interactableObjects/set_bomb.tscn").Instantiate();
+					setBomb.Position = Position;
+					GetTree().Root.AddChild(setBomb);
+
+					handToUse.deleteItem();
+				}
+			}
+		}else if(!itemHolder1.carryingItem && itemHolder2.carryingItem){
+			if(Input.IsActionJustPressed("use")){
+				//blower usage
+				if(itemHolder2.heldItem.itemName == "blower"){
+					itemHolder2.GetNode<Blower>("blower").shoot();
+				}
+
+				//ultra Fan usage
+				if(itemHolder2.heldItem.itemName == "ultraFan"){
+					fanDashTimer.Start();
+				}
+					
+				//bomb usage
+				if(itemHolder2.heldItem.itemName == "bomb"){
+					var setBomb = (Node2D)GD.Load<PackedScene>("res://objects/interactableObjects/set_bomb.tscn").Instantiate();
+					setBomb.Position = Position;
+					GetTree().Root.AddChild(setBomb);
+
+					itemHolder2.deleteItem();
 				}
 			}
 		}
@@ -171,6 +208,9 @@ public partial class Player : CharacterBody2D{
 			}else if(itemHolder1.heldItem != null && itemHolder2.heldItem == null){
 				//if hand 1 is full and 2 is empty, add the item to hand 2
 				itemHolder2.heldItem = (floorItems)item;
+			}else if(itemHolder1.heldItem == null && itemHolder2.heldItem != null){
+				//if hand 2 is full and 1 is empty, add the item to hand 1
+				itemHolder1.heldItem = (floorItems)item;
 			}
 			item.QueueFree();
 			EmitSignal(SignalName.itemChanged);
@@ -239,7 +279,7 @@ public partial class Player : CharacterBody2D{
 		}
 
 		//make the player respawn at the last checkpoint
-		if(area.CollisionLayer == 16){
+		if(area.CollisionLayer == 16 && !dashing){
 			respawnTimer.Start();
 			Position = pVariables.pSpawnPoint;
 			died = true;

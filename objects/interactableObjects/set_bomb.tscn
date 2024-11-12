@@ -1,0 +1,113 @@
+[gd_scene load_steps=16 format=3 uid="uid://b44mwms40tet0"]
+
+[ext_resource type="Texture2D" uid="uid://cdtqg42aikamy" path="res://sprites/projectile/bombBeeping.png" id="1_tbfg0"]
+[ext_resource type="Texture2D" uid="uid://dwn83ooq8kan3" path="res://sprites/projectile/bombExploding.png" id="2_tnv6d"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cx8uc"]
+atlas = ExtResource("1_tbfg0")
+region = Rect2(0, 0, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ls3as"]
+atlas = ExtResource("1_tbfg0")
+region = Rect2(24, 0, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vc2t6"]
+atlas = ExtResource("2_tnv6d")
+region = Rect2(0, 0, 180, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kb71e"]
+atlas = ExtResource("2_tnv6d")
+region = Rect2(180, 0, 180, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_idyri"]
+atlas = ExtResource("2_tnv6d")
+region = Rect2(360, 0, 180, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nr11h"]
+atlas = ExtResource("2_tnv6d")
+region = Rect2(0, 160, 180, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nqcvc"]
+atlas = ExtResource("2_tnv6d")
+region = Rect2(180, 160, 180, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5dq6g"]
+atlas = ExtResource("2_tnv6d")
+region = Rect2(360, 160, 180, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bqij1"]
+atlas = ExtResource("2_tnv6d")
+region = Rect2(0, 320, 180, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_72p1w"]
+atlas = ExtResource("2_tnv6d")
+region = Rect2(180, 320, 180, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m14et"]
+atlas = ExtResource("2_tnv6d")
+region = Rect2(360, 320, 180, 160)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yk77x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cx8uc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ls3as")
+}],
+"loop": true,
+"name": &"beeping",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vc2t6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kb71e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_idyri")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nr11h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nqcvc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5dq6g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bqij1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_72p1w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m14et")
+}],
+"loop": false,
+"name": &"explosion",
+"speed": 8.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cv3ka"]
+radius = 160.253
+
+[node name="setBomb" type="Node2D"]
+
+[node name="setOffTimer" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_yk77x")
+animation = &"beeping"
+autoplay = "beeping"
+
+[node name="explodeWall" type="Area2D" parent="."]
+collision_layer = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="explodeWall"]
+shape = SubResource("CircleShape2D_cv3ka")
