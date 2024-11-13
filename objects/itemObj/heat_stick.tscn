@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bkfmrc6cfir2l"]
+[gd_scene load_steps=9 format=3 uid="uid://bkfmrc6cfir2l"]
 
 [ext_resource type="Texture2D" uid="uid://bgd2bno8x5xy6" path="res://sprites/items/heatStick.png" id="1_fhfn4"]
 [ext_resource type="Script" path="res://scripts/animationPlayer.cs" id="2_ncam2"]
@@ -39,6 +39,9 @@ animations = [{
 "speed": 6.0
 }]
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_oj5dq"]
+polygon = PackedVector2Array(-23, -287.2, -23, -285.3, -96.3, -270, -100, -270, -163, -235, -165.6, -235, -221.7, -180, -223.3, -180, -261.4, -113, -263.1, -113, -280.1, -43, -282.1, -43, -280, 36.1, -280, 42.6, -260, 105.5, -260, 109.2, -214, 178.1, -214, 180.9, -148, 234.8, -148, 236.7, -81, 264.6, -81, 266.4, -15.3, 277, 12.4, 277, 80.3, 264, 85, 264, 161, 224, 163.6, 224, 217.7, 171, 219.4, 171, 260.3, 97, 262.2, 97, 278.2, 21, 280.2, 21, 278, -37.1, 278, -45.5, 265, -95.7, 265, -98.9, 240, -149, 240, -151.4, 212, -187.5, 212, -189.8, 162, -233.8, 162, -235.4, 110, -263.4, 110, -265.1, 47, -282.1, 47, -283.8)
+
 [node name="heatStick" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_ytsou")
 frame = 2
@@ -46,3 +49,12 @@ frame_progress = 0.772636
 centered = false
 offset = Vector2(-6, -52)
 script = ExtResource("2_ncam2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -20)
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+position = Vector2(0, -20)
+scale = Vector2(0.306667, 0.306667)
+occluder = SubResource("OccluderPolygon2D_oj5dq")
+occluder_light_mask = 2
