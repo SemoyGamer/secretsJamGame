@@ -1,4 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://dvj83myil8heo"]
+[gd_scene load_steps=6 format=3 uid="uid://dvj83myil8heo"]
+
+[ext_resource type="Script" path="res://scripts/mapInteractable/HardSnow.cs" id="1_u3tbj"]
 
 [sub_resource type="Curve" id="Curve_3nhhu"]
 _data = [Vector2(0, 0.184953), 0.0, 0.0, 0, 0, Vector2(0.125, 1), 0.0, 0.0, 0, 0, Vector2(0.996212, 0.0219437), 0.0, 0.0, 0, 0]
@@ -23,10 +25,26 @@ turbulence_enabled = true
 turbulence_noise_scale = 5.473
 collision_mode = 2
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h5r7d"]
+size = Vector2(135, 135)
+
 [node name="hardSnow" type="StaticBody2D"]
+script = ExtResource("1_u3tbj")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 amount = 256
 process_material = SubResource("ParticleProcessMaterial_4f0ev")
 lifetime = 6.0
 randomness = 0.5
+
+[node name="playerCollider" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_h5r7d")
+
+[node name="heatStickDetector" type="Area2D" parent="."]
+collision_mask = 128
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="heatStickDetector"]
+shape = SubResource("RectangleShape2D_h5r7d")
+
+[connection signal="area_entered" from="heatStickDetector" to="." method="_on_heat_stick_detector_area_entered"]
+[connection signal="area_exited" from="heatStickDetector" to="." method="_on_heat_stick_detector_area_exited"]
