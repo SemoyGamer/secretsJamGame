@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cear2x7wka02q"]
+[gd_scene load_steps=5 format=3 uid="uid://cear2x7wka02q"]
 
 [ext_resource type="Texture2D" uid="uid://oi4q10e7mtyg" path="res://sprites/items/snippers.png" id="1_d8sb0"]
 [ext_resource type="Script" path="res://scripts/usableItem/Snipper.cs" id="2_0ym0h"]
+[ext_resource type="AudioStream" uid="uid://d25xtm5cl4dl5" path="res://sounds/itemSounds/scissorSound.mp3" id="3_0m4ov"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sct6m"]
 size = Vector2(66, 39)
@@ -20,6 +21,10 @@ position = Vector2(0, -27.5)
 shape = SubResource("RectangleShape2D_sct6m")
 
 [node name="snipTimer" type="Timer" parent="."]
+wait_time = 0.4
 one_shot = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_0m4ov")
 
 [connection signal="timeout" from="snipTimer" to="." method="_on_snip_timer_timeout"]

@@ -14,5 +14,8 @@ public partial class Blower : Sprite2D
 
         //add the scene not on the player or item holder
         GetTree().Root.AddChild(windIns);
+
+        //play the sound
+        GetNode<AudioStreamPlayer2D>("AudioStreamPlayer2D").Play();
     }
 }

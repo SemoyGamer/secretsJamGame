@@ -13,6 +13,8 @@ public partial class Player : CharacterBody2D{
 	Timer craftTimer;
 	Timer fanDashTimer;
 	Timer respawnTimer;
+	AudioStreamPlayer2D soundComplete;
+	AudioStreamPlayer2D soundError;
 
 	//smooth rotation values
 	public float _theta;
@@ -40,6 +42,9 @@ public partial class Player : CharacterBody2D{
 		iHPos = itemHolder1.Position;
 		itemHolder2 = GetNode<ItemHolder>("itemHolder2");
 		iHPos2 = itemHolder2.Position;
+
+		soundComplete = GetNode<AudioStreamPlayer2D>("soundComplete");
+		soundError = GetNode<AudioStreamPlayer2D>("soundError");
 
 		//starts the craft timer
 		craftTimer.Start();
@@ -134,8 +139,9 @@ public partial class Player : CharacterBody2D{
 				}
 
 				//ultra Fan usage
-				if(itemHolder1.heldItem.itemName == "ultraFan"){
+				if(itemHolder1.heldItem.itemName == "ultraFan" && fanDashTimer.IsStopped()){
 					fanDashTimer.Start();
+					itemHolder1.GetNode<Sprite2D>("ultraFan").GetNode<AudioStreamPlayer2D>("AudioStreamPlayer2D").Play();
 				}
 				
 				//bomb usage
@@ -169,9 +175,10 @@ public partial class Player : CharacterBody2D{
 				//blower usage
 				if(handToUse.heldItem.itemName == "blower"){
 					handToUse.GetNode<Blower>("blower").shoot();
-				}else if(handToUse.heldItem.itemName == "ultraFan"){
+				}else if(handToUse.heldItem.itemName == "ultraFan" && fanDashTimer.IsStopped()){
 					//ultra fan usage
 					fanDashTimer.Start();
+					handToUse.GetNode<Sprite2D>("ultraFan").GetNode<AudioStreamPlayer2D>("AudioStreamPlayer2D").Play();
 				}else if(handToUse.heldItem.itemName == "bomb"){
 					//bomb usage
 					var setBomb = (Node2D)GD.Load<PackedScene>("res://objects/itemObj/itemProjectiles/set_bomb.tscn").Instantiate();
@@ -191,8 +198,9 @@ public partial class Player : CharacterBody2D{
 				}
 
 				//ultra Fan usage
-				if(itemHolder2.heldItem.itemName == "ultraFan"){
+				if(itemHolder2.heldItem.itemName == "ultraFan" && fanDashTimer.IsStopped()){
 					fanDashTimer.Start();
+					itemHolder2.GetNode<Sprite2D>("ultraFan").GetNode<AudioStreamPlayer2D>("AudioStreamPlayer2D").Play();
 				}
 					
 				//bomb usage
@@ -250,37 +258,41 @@ public partial class Player : CharacterBody2D{
 
 	public void craft(){
 		//check what the player is holding, then turn it into a new item
-		//craft the ultra fan
 		if((itemHolder1.heldItem.itemName == "blower" && itemHolder2.heldItem.itemName == "engine") || (itemHolder1.heldItem.itemName == "engine" && itemHolder2.heldItem.itemName == "blower")){
+			//craft the ultra fan
 			itemHolder1.deleteItem();
 			itemHolder2.deleteItem();
+
+			soundComplete.Play();
 
 			var newItem = (Area2D)GD.Load<PackedScene>("res://objects/itemObj/floorItems/ultra_fan_floor.tscn").Instantiate();
 			newItem.Position = Position;
 
 			GetParent().GetNode<Node2D>("floorItemLayer").AddChild(newItem);
-		}
-
-		//craft the bomb
-		if((itemHolder1.heldItem.itemName == "gunpowder" && itemHolder2.heldItem.itemName == "heaterCore") || (itemHolder1.heldItem.itemName == "heaterCore" && itemHolder2.heldItem.itemName == "gunpowder")){
+		}else if((itemHolder1.heldItem.itemName == "gunpowder" && itemHolder2.heldItem.itemName == "heaterCore") || (itemHolder1.heldItem.itemName == "heaterCore" && itemHolder2.heldItem.itemName == "gunpowder")){
+			//craft the bomb
 			itemHolder1.deleteItem();
 			itemHolder2.deleteItem();
+
+			soundComplete.Play();
 
 			var newItem = (Area2D)GD.Load<PackedScene>("res://objects/itemObj/floorItems/bomb_floor.tscn").Instantiate();
 			newItem.Position = Position;
 
 			GetParent().GetNode<Node2D>("floorItemLayer").AddChild(newItem);
-		}
-
-		//craft the heat stick
-		if((itemHolder1.heldItem.itemName == "heaterCore" && itemHolder2.heldItem.itemName == "energyStick") || (itemHolder1.heldItem.itemName == "energyStick" && itemHolder2.heldItem.itemName == "heaterCore")){
+		}else if((itemHolder1.heldItem.itemName == "heaterCore" && itemHolder2.heldItem.itemName == "energyStick") || (itemHolder1.heldItem.itemName == "energyStick" && itemHolder2.heldItem.itemName == "heaterCore")){
+			//craft the heat stick
 			itemHolder1.deleteItem();
 			itemHolder2.deleteItem();
+
+			soundComplete.Play();
 
 			var newItem = (Area2D)GD.Load<PackedScene>("res://objects/itemObj/floorItems/heat_stick_floor.tscn").Instantiate();
 			newItem.Position = Position;
 
 			GetParent().GetNode<Node2D>("floorItemLayer").AddChild(newItem);
+		}else{
+			soundError.Play();
 		}
 	}
 

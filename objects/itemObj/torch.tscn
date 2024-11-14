@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://c5yp33klxjchp"]
+[gd_scene load_steps=12 format=3 uid="uid://c5yp33klxjchp"]
 
 [ext_resource type="Texture2D" uid="uid://bu4dsq27tt7as" path="res://sprites/items/torch.png" id="1_pw4bw"]
 [ext_resource type="Script" path="res://scripts/animationPlayer.cs" id="2_nn0wr"]
+[ext_resource type="AudioStream" uid="uid://7luett0632e3" path="res://sounds/itemSounds/fireplace-6160.mp3" id="3_vf4g4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_acls8"]
 atlas = ExtResource("1_pw4bw")
@@ -71,3 +72,10 @@ shadow_enabled = true
 shadow_filter = 1
 shadow_filter_smooth = 4.0
 texture = SubResource("GradientTexture2D_qwr7f")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_vf4g4")
+volume_db = 2.5
+autoplay = true
+max_distance = 900.0
+attenuation = 5.09823

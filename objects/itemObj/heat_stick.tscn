@@ -53,7 +53,7 @@ fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(1, 0.5)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_87kyj"]
-radius = 65.0077
+radius = 82.0015
 
 [node name="heatStick" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_ytsou")

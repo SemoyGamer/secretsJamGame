@@ -19,6 +19,7 @@ public partial class Snipper : Sprite2D
         if(!snipping){
             snipArea.GetNode<CollisionShape2D>("CollisionShape2D").Disabled = false;
             snipTimer.Start();
+            GetNode<AudioStreamPlayer2D>("AudioStreamPlayer2D").Play();
             snipping = true;;
         }
     }
