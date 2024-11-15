@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://d0iu4qsel16ge"]
+
+[ext_resource type="PackedScene" uid="uid://cw0cd3hrp7xf3" path="res://objects/player.tscn" id="1_3rkbl"]
+
+[node name="snowyBridges" type="Node2D"]
+
+[node name="player" parent="." instance=ExtResource("1_3rkbl")]
+
+[node name="floorItemLayer" type="Node2D" parent="."]

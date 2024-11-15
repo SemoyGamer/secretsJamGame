@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dxjfp7v5ui3iu"]
+[gd_scene load_steps=19 format=3 uid="uid://dxjfp7v5ui3iu"]
 
 [ext_resource type="Texture2D" uid="uid://dobu43qgbp825" path="res://icon.svg" id="1_kgj4g"]
 [ext_resource type="PackedScene" uid="uid://cw0cd3hrp7xf3" path="res://objects/player.tscn" id="1_udybp"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://b1m5hxv02tylg" path="res://objects/interactableObjects/broken_wall.tscn" id="14_orkic"]
 [ext_resource type="PackedScene" uid="uid://dollddxx7kvtd" path="res://objects/interactableObjects/plant_wall.tscn" id="16_u2lxv"]
 [ext_resource type="PackedScene" uid="uid://dvj83myil8heo" path="res://objects/hard_snow.tscn" id="17_j33ok"]
+[ext_resource type="PackedScene" uid="uid://dcdki26f0rl51" path="res://objects/itemObj/item_spawner.tscn" id="18_4t2we"]
 
 [node name="main" type="Node2D"]
 
@@ -59,6 +60,10 @@ position = Vector2(402, 382)
 
 [node name="heatStickFloor" parent="floorItemLayer" instance=ExtResource("13_6rmdw")]
 position = Vector2(794, 404)
+
+[node name="itemSpawner" parent="floorItemLayer" instance=ExtResource("18_4t2we")]
+position = Vector2(427, -132)
+itemToSpawn = ExtResource("5_adxgn")
 
 [node name="brokenWall" parent="." instance=ExtResource("14_orkic")]
 position = Vector2(695, 108)

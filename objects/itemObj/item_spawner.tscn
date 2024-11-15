@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://dcdki26f0rl51"]
+
+[ext_resource type="Script" path="res://scripts/itemCode/ItemSpawner.cs" id="1_8y14m"]
+
+[node name="itemSpawner" type="Node2D"]
+script = ExtResource("1_8y14m")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+autostart = true
+
+[connection signal="child_exiting_tree" from="." to="." method="_on_child_exiting_tree"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
