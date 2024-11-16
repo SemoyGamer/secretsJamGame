@@ -1,8 +1,12 @@
-[gd_scene load_steps=4 format=4 uid="uid://d0iu4qsel16ge"]
+[gd_scene load_steps=8 format=4 uid="uid://d0iu4qsel16ge"]
 
 [ext_resource type="PackedScene" uid="uid://cw0cd3hrp7xf3" path="res://objects/player.tscn" id="1_3rkbl"]
 [ext_resource type="PackedScene" uid="uid://comh03ykqibo4" path="res://objects/snowyBridges/snowy_bridges_tile.tscn" id="1_t7v3p"]
 [ext_resource type="PackedScene" uid="uid://ck1quuqn18qaf" path="res://objects/itemObj/floorItems/torch_floor.tscn" id="3_du63e"]
+[ext_resource type="PackedScene" uid="uid://slof3vqyt0ni" path="res://objects/snowyBridges/engine_holder.tscn" id="4_41cwu"]
+[ext_resource type="PackedScene" uid="uid://rxjrwqxwpcoa" path="res://objects/itemObj/floorItems/heat_stick_floor.tscn" id="4_f3k2h"]
+[ext_resource type="PackedScene" uid="uid://uiirsphjjb0c" path="res://objects/snowyBridges/blower_holder.tscn" id="5_yxfnf"]
+[ext_resource type="PackedScene" uid="uid://dvj83myil8heo" path="res://objects/hard_snow.tscn" id="6_qhx8a"]
 
 [node name="snowyBridges" type="Node2D"]
 
@@ -14,5 +18,26 @@ tile_map_data = PackedByteArray("AAD3//3/AAABAAMAAAD3//7/AAABAAMAAAD3////AAABAAM
 
 [node name="floorItemLayer" type="Node2D" parent="."]
 
-[node name="torchFloor" parent="." instance=ExtResource("3_du63e")]
-position = Vector2(39, -217)
+[node name="torchFloor" parent="floorItemLayer" instance=ExtResource("3_du63e")]
+position = Vector2(166, -190)
+
+[node name="heatStickFloor" parent="floorItemLayer" instance=ExtResource("4_f3k2h")]
+position = Vector2(4, -212)
+
+[node name="engineHolder" parent="." instance=ExtResource("4_41cwu")]
+position = Vector2(196, -295)
+
+[node name="blowerHolder" parent="." instance=ExtResource("5_yxfnf")]
+position = Vector2(324, -283)
+
+[node name="hardSnow" parent="." instance=ExtResource("6_qhx8a")]
+position = Vector2(610, -276)
+
+[node name="hardSnow2" parent="." instance=ExtResource("6_qhx8a")]
+position = Vector2(610, -141)
+
+[node name="hardSnow3" parent="." instance=ExtResource("6_qhx8a")]
+position = Vector2(477, -141)
+
+[node name="hardSnow4" parent="." instance=ExtResource("6_qhx8a")]
+position = Vector2(479, -276)

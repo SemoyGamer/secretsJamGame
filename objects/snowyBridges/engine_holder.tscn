@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://slof3vqyt0ni"]
+
+[ext_resource type="Texture2D" uid="uid://ccufscj6v2c1l" path="res://sprites/snowyBridges/engineHolder.png" id="1_k02qf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7o8us"]
+radius = 28.0
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_q001t"]
+polygon = PackedVector2Array(-8, -28, -8, -20, -16, -20, -16, -24, -24, -24, -24, -20, -28, -20, -28, 20, -24, 20, -24, 24, -20, 24, -20, 28, 16, 28, 16, 24, 20, 24, 20, 16, 24, 16, 24, 20, 28, 20, 28, -20, 24, -20, 24, -24, 20, -24, 20, -28)
+
+[node name="engineHolder" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_k02qf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_7o8us")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_q001t")
