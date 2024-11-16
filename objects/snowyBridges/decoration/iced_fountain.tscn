@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://1tn3lqhyrjq4"]
+
+[ext_resource type="Texture2D" uid="uid://bavcsa3pgik21" path="res://sprites/snowyBridges/decoration/icedFountain.png" id="1_6c2tn"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ekvsv"]
+polygon = PackedVector2Array(-12, -32, -12, -28, -20, -28, -20, -24, -24, -24, -24, -20, -28, -20, -28, -12, -32, -12, -32, 12, -28, 12, -28, 20, -24, 20, -24, 24, -20, 24, -20, 28, -12, 28, -12, 32, 12, 32, 12, 28, 20, 28, 20, 24, 24, 24, 24, 20, 28, 20, 28, 12, 32, 12, 32, -12, 28, -12, 28, -20, 24, -20, 24, -24, 20, -24, 20, -28, 12, -28, 12, -32)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xhcho"]
+radius = 32.0
+
+[node name="icedFountain" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_6c2tn")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_ekvsv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_xhcho")

@@ -76,6 +76,7 @@ occluder_light_mask = 2
 position = Vector2(0, -20)
 color = Color(0.814378, 0.361525, 0.181136, 1)
 energy = 0.7
+range_z_max = 0
 shadow_enabled = true
 shadow_filter = 1
 shadow_filter_smooth = 4.0

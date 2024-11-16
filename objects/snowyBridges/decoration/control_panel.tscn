@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://dhggita4mpbew"]
+
+[ext_resource type="Texture2D" uid="uid://osb08gffsjc4" path="res://sprites/snowyBridges/decoration/controlPanel.png" id="1_emx5u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t2pjc"]
+size = Vector2(128, 64)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_y8onq"]
+polygon = PackedVector2Array(-56, -32, -56, -28, -60, -28, -60, -24, -64, -24, -64, 24, -60, 24, -60, 28, -56, 28, -56, 32, 56, 32, 56, 28, 60, 28, 60, 24, 64, 24, 64, -24, 60, -24, 60, -28, 56, -28, 56, -32)
+
+[node name="controlPanel" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_emx5u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_t2pjc")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_y8onq")

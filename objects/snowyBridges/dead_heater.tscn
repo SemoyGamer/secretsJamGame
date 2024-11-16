@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://vnyd1fvp2edq"]
+
+[ext_resource type="Texture2D" uid="uid://bxhtd2nmddrav" path="res://sprites/snowyBridges/deadHeater.png" id="1_4boba"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ur4uu"]
+polygon = PackedVector2Array(-20, -96, -20, -92, -36, -92, -36, -88, -44, -88, -44, -84, -52, -84, -52, -80, -56, -80, -56, -76, -64, -76, -64, -72, -68, -72, -68, -68, -72, -68, -72, -64, -76, -64, -76, -56, -80, -56, -80, -52, -84, -52, -84, -44, -88, -44, -88, -36, -92, -36, -92, -20, -96, -20, -96, 20, -92, 20, -92, 36, -88, 36, -88, 44, -84, 44, -84, 52, -80, 52, -80, 56, -76, 56, -76, 64, -72, 64, -72, 68, -68, 68, -68, 72, -64, 72, -64, 76, -56, 76, -56, 80, -52, 80, -52, 84, -44, 84, -44, 88, -36, 88, -36, 92, -20, 92, -20, 96, 20, 96, 20, 92, 36, 92, 36, 88, 44, 88, 44, 84, 52, 84, 52, 80, 56, 80, 56, 76, 64, 76, 64, 72, 68, 72, 68, 68, 72, 68, 72, 64, 76, 64, 76, 56, 80, 56, 80, 52, 84, 52, 84, 44, 88, 44, 88, 36, 92, 36, 92, 20, 96, 20, 96, -20, 92, -20, 92, -36, 88, -36, 88, -44, 84, -44, 84, -52, 80, -52, 80, -56, 76, -56, 76, -64, 72, -64, 72, -68, 68, -68, 68, -72, 64, -72, 64, -76, 56, -76, 56, -80, 52, -80, 52, -84, 44, -84, 44, -88, 36, -88, 36, -92, 20, -92, 20, -96)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_23tdp"]
+radius = 95.1893
+
+[node name="deadHeater" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_4boba")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_ur4uu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_23tdp")
