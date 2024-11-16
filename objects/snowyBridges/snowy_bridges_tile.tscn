@@ -1,3 +1,75 @@
-[gd_scene format=3 uid="uid://comh03ykqibo4"]
+[gd_scene load_steps=12 format=3 uid="uid://comh03ykqibo4"]
+
+[ext_resource type="Texture2D" uid="uid://d4jlhvc0nnsgf" path="res://sprites/snowyBridges/snowyBridgesTile.png" id="1_0nriu"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_r44v2"]
+polygon = PackedVector2Array(16, -32, 32, -32, 32, 32, 16, 32)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_cj7wy"]
+polygon = PackedVector2Array(-32, 16, 32, 16, 32, 32, -32, 32)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_u1o62"]
+polygon = PackedVector2Array(-32, -32, 32, -32, 32, -16, -32, -16)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_sop87"]
+polygon = PackedVector2Array(-32, -32, -16, -32, -16, 32, -32, 32)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_aqxy1"]
+polygon = PackedVector2Array(-32, -32, 32, -32, 32, -16, -16, -16, -16, 32, -32, 32)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ua8jd"]
+polygon = PackedVector2Array(-32, -32, -16, -32, -16, 16, 32, 16, 32, 32, -32, 32)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_o7u5a"]
+polygon = PackedVector2Array(-32, -32, 32, -32, 32, 32, 16, 32, 16, -16, -32, -16)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_k3gaf"]
+polygon = PackedVector2Array(16, -32, 32, -32, 32, 32, -32, 32, -32, 16, 16, 16)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j3kwe"]
+texture = ExtResource("1_0nriu")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+2:1/0 = 0
+1:1/0 = 0
+0:1/0 = 0
+3:0/0 = 0
+3:0/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_aqxy1")
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, -16, -16, -16, -16, 32, -32, 32)
+4:0/0 = 0
+4:0/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_o7u5a")
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, -32, -16, 16, -16, 16, 32, 32, 32, 32, -32)
+4:1/0 = 0
+4:1/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_k3gaf")
+4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(16, -32, 32, -32, 32, 32, -32, 32, -32, 16, 16, 16)
+3:1/0 = 0
+3:1/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_ua8jd")
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, -16, -32, -16, 16, 32, 16, 32, 32, -32, 32)
+2:2/0 = 0
+1:2/0 = 0
+1:2/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_cj7wy")
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, 16, 32, 16, 32, 32, -32, 32)
+0:2/0 = 0
+0:3/0 = 0
+0:3/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_r44v2")
+0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(16, -32, 16, 32, 32, 32, 32, -32)
+1:3/0 = 0
+2:3/0 = 0
+2:3/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_sop87")
+2:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, -16, -32, -16, 32, -32, 32)
+2:4/0 = 0
+1:4/0 = 0
+1:4/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_u1o62")
+1:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -16, 32, -16, 32, -32, -32, -32)
+0:4/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_q4mcc"]
+tile_size = Vector2i(64, 64)
+occlusion_layer_0/light_mask = 1
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_j3kwe")
 
 [node name="snowyBridgesTile" type="TileMapLayer"]
+tile_set = SubResource("TileSet_q4mcc")
