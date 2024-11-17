@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d4jlhvc0nnsgf"
-path="res://.godot/imported/snowyBridgesTile.png-3967efaa6dd66233879760b3962e96f9.ctex"
+uid="uid://b8ay2ytc2x2u3"
+path="res://.godot/imported/snowPile2.png-5d139d1ccf3222f58cf923666aadee8c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/snowyBridges/snowyBridgesTile.png"
-dest_files=["res://.godot/imported/snowyBridgesTile.png-3967efaa6dd66233879760b3962e96f9.ctex"]
+source_file="res://sprites/snowyBridges/snow/snowPile2.png"
+dest_files=["res://.godot/imported/snowPile2.png-5d139d1ccf3222f58cf923666aadee8c.ctex"]
 
 [params]
 
@@ -23,8 +23,8 @@ compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=false
 mipmaps/limit=-1
-roughness/mode=6
-roughness/src_normal="s/snowyBridges/NormalMap.png"
+roughness/mode=0
+roughness/src_normal=""
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false

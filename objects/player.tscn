@@ -104,6 +104,7 @@ stream = ExtResource("5_mmmox")
 
 [node name="soundError" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_t6eyv")
+volume_db = 2.0
 
 [connection signal="itemChanged" from="." to="itemHolder" method="_on_player_item_changed"]
 [connection signal="itemChanged" from="." to="itemHolder2" method="_on_player_item_changed"]
