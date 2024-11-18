@@ -15,6 +15,7 @@ public partial class Player : CharacterBody2D{
 	Timer respawnTimer;
 	AudioStreamPlayer2D soundComplete;
 	AudioStreamPlayer2D soundError;
+	AudioStreamPlayer footsteps;
 
 	//smooth rotation values
 	public float _theta;
@@ -45,6 +46,7 @@ public partial class Player : CharacterBody2D{
 
 		soundComplete = GetNode<AudioStreamPlayer2D>("soundComplete");
 		soundError = GetNode<AudioStreamPlayer2D>("soundError");
+		footsteps = GetNode<AudioStreamPlayer>("footsteps");
 
 		//starts the craft timer
 		craftTimer.Start();
@@ -65,6 +67,11 @@ public partial class Player : CharacterBody2D{
 			
 			playerSprite.Play("walking");
 
+			//play the footsteps sound effect if the player is walking
+			if(!footsteps.Playing){
+				footsteps.Play();
+			}
+
 			//player rotation
 			_theta = Mathf.Wrap(Mathf.Atan2(direction.Y, direction.X) - Rotation + Mathf.Pi / 2, -Mathf.Pi, Mathf.Pi);
 			Rotation += Mathf.Clamp(rotationSpeed * (float)delta, 0, Mathf.Abs(_theta)) * Mathf.Sign(_theta);
@@ -73,6 +80,11 @@ public partial class Player : CharacterBody2D{
 				velocity = Vector2.Zero;
 			}
 			playerSprite.Play("idle");
+
+			//stop the footsteps sound effect if the player is not walking
+			if(footsteps.Playing){
+				footsteps.Stop();
+			}
 		}
 
 		Velocity = velocity;

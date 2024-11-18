@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cw0cd3hrp7xf3"]
+[gd_scene load_steps=15 format=3 uid="uid://cw0cd3hrp7xf3"]
 
 [ext_resource type="Script" path="res://scripts/Player.cs" id="1_d4ad3"]
 [ext_resource type="Texture2D" uid="uid://djx460pwqphct" path="res://sprites/player/playerIdle.png" id="2_e8xhw"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b5u5nm3wb5ju7" path="res://objects/itemObj/item_holder.tscn" id="4_7qucp"]
 [ext_resource type="AudioStream" uid="uid://bya8oxenij6l0" path="res://sounds/userAction/point-smooth-beep-230573.mp3" id="5_mmmox"]
 [ext_resource type="AudioStream" uid="uid://8f2dusagihuq" path="res://sounds/userAction/error.mp3" id="6_t6eyv"]
+[ext_resource type="AudioStream" uid="uid://b7qwp272iiu4j" path="res://sounds/userAction/521590__fission9__hiking-boot-footsteps-on-stone.wav" id="7_ypo7k"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lmkmn"]
 atlas = ExtResource("3_ajq7t")
@@ -48,7 +49,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"walking",
-"speed": 4.0
+"speed": 3.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qy1uq"]
@@ -63,7 +64,7 @@ script = ExtResource("1_d4ad3")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_vnadk")
-animation = &"idle"
+animation = &"walking"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_qy1uq")
@@ -105,6 +106,10 @@ stream = ExtResource("5_mmmox")
 [node name="soundError" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_t6eyv")
 volume_db = 2.0
+
+[node name="footsteps" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_ypo7k")
+volume_db = -8.0
 
 [connection signal="itemChanged" from="." to="itemHolder" method="_on_player_item_changed"]
 [connection signal="itemChanged" from="." to="itemHolder2" method="_on_player_item_changed"]
