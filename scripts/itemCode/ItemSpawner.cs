@@ -19,7 +19,6 @@ public partial class ItemSpawner : Node2D
 	//spawn the packed scene at a position close to the item spawner if it can spawn
 	public void _on_timer_timeout(){
 		var spawnItem = (floorItems)itemToSpawn.Instantiate();
-		spawnItem.Position = Position + new Vector2((float)GD.RandRange(-40.0f, 40.0f), (float)GD.RandRange(-40.0f, 40.0f));
 		AddChild(spawnItem);
 	}
 
