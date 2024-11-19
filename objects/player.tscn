@@ -115,4 +115,3 @@ volume_db = -8.0
 [connection signal="itemChanged" from="." to="itemHolder2" method="_on_player_item_changed"]
 [connection signal="timeout" from="craftTimer" to="." method="_on_craft_timer_timeout"]
 [connection signal="timeout" from="respawnTimer" to="." method="_on_respawn_timer_timeout"]
-[connection signal="area_entered" from="fallArea" to="." method="_on_fall_area_area_entered"]

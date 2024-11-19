@@ -16,6 +16,7 @@ public partial class Player : CharacterBody2D{
 	AudioStreamPlayer2D soundComplete;
 	AudioStreamPlayer2D soundError;
 	AudioStreamPlayer footsteps;
+	Area2D fallArea;
 
 	//smooth rotation values
 	public float _theta;
@@ -38,6 +39,7 @@ public partial class Player : CharacterBody2D{
 		craftTimer = GetNode<Timer>("craftTimer");
 		fanDashTimer = GetNode<Timer>("fanDashTimer");
 		respawnTimer = GetNode<Timer>("respawnTimer");
+		fallArea = GetNode<Area2D>("fallArea");
 
 		itemHolder1 = GetNode<ItemHolder>("itemHolder");
 		iHPos = itemHolder1.Position;
@@ -140,6 +142,22 @@ public partial class Player : CharacterBody2D{
 			//resets the timer
 			craftTimer.WaitTime = 2.0f;
 			craftTimer.Paused = true;
+		}
+
+		//killing the player code
+		if(fallArea.GetOverlappingAreas().Count > 0){
+			var pVariables = GetNode<GlobalVariables>("/root/GlobalVariables");
+			//set the player's checkpoint
+			if(fallArea.GetOverlappingAreas()[0].CollisionLayer == 8){
+				pVariables.pSpawnPoint = fallArea.GetOverlappingAreas()[0].Position;
+			}
+
+			//make the player respawn at the last checkpoint
+			if(fallArea.GetOverlappingAreas()[0].CollisionLayer == 16 && !dashing){
+				respawnTimer.Start();
+				Position = pVariables.pSpawnPoint;
+				died = true;
+			}
 		}
 
 		//using items code
@@ -305,21 +323,6 @@ public partial class Player : CharacterBody2D{
 			GetParent().GetNode<Node2D>("floorItemLayer").AddChild(newItem);
 		}else{
 			soundError.Play();
-		}
-	}
-
-	public void _on_fall_area_area_entered(Area2D area){
-		var pVariables = GetNode<GlobalVariables>("/root/GlobalVariables");
-		//set the player's checkpoint
-		if(area.CollisionLayer == 8){
-			pVariables.pSpawnPoint = area.Position;
-		}
-
-		//make the player respawn at the last checkpoint
-		if(area.CollisionLayer == 16 && !dashing){
-			respawnTimer.Start();
-			Position = pVariables.pSpawnPoint;
-			died = true;
 		}
 	}
 
