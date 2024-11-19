@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=4 uid="uid://d0iu4qsel16ge"]
+[gd_scene load_steps=34 format=4 uid="uid://d0iu4qsel16ge"]
 
 [ext_resource type="PackedScene" uid="uid://cw0cd3hrp7xf3" path="res://objects/player.tscn" id="1_3rkbl"]
 [ext_resource type="PackedScene" uid="uid://comh03ykqibo4" path="res://objects/snowyBridges/snowy_bridges_tile.tscn" id="1_t7v3p"]
@@ -19,12 +19,17 @@
 [ext_resource type="PackedScene" uid="uid://1tn3lqhyrjq4" path="res://objects/snowyBridges/decoration/iced_fountain.tscn" id="11_1qav6"]
 [ext_resource type="Script" path="res://scripts/snowFollower.cs" id="12_276xh"]
 [ext_resource type="PackedScene" uid="uid://gjjab4mve1p6" path="res://objects/snowyBridges/decoration/arch.tscn" id="12_kkr3q"]
+[ext_resource type="FontFile" uid="uid://b0q1118wgkaoo" path="res://fonts/Minecraft.ttf" id="17_einog"]
 [ext_resource type="AudioStream" uid="uid://cue21rcnxt7vq" path="res://sounds/ambient/cold-wind-sound-effect-127448.mp3" id="17_g0shx"]
 [ext_resource type="PackedScene" uid="uid://dvj83myil8heo" path="res://objects/hard_snow.tscn" id="17_i0j7b"]
 [ext_resource type="AudioStream" uid="uid://r58buweqdtqs" path="res://sounds/ambient/455929__florianreichelt__fresh-and-light-snowfall.wav" id="20_asm6t"]
 [ext_resource type="PackedScene" uid="uid://d1j0q5xlqb3gu" path="res://objects/playerObjects/checkpoint.tscn" id="21_vueql"]
 [ext_resource type="PackedScene" uid="uid://jlmt64tq6igh" path="res://objects/playerObjects/fall_area.tscn" id="22_bfg7c"]
 [ext_resource type="Texture2D" uid="uid://cu5dfnxwumths" path="res://sprites/snowyBridges/decoration/gateway.png" id="25_ybeey"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_b2krd"]
+font = ExtResource("17_einog")
+font_size = 32
 
 [sub_resource type="Curve" id="Curve_m6ckl"]
 _data = [Vector2(0, 0.184953), 0.0, 0.0, 0, 0, Vector2(0.125, 1), 0.0, 0.0, 0, 0, Vector2(0.996212, 0.0219437), 0.0, 0.0, 0, 0]
@@ -201,6 +206,38 @@ texture = ExtResource("5_vidm7")
 position = Vector2(12085, -7670)
 rotation = 4.71239
 texture = ExtResource("5_vidm7")
+
+[node name="tutorialLayer" type="Node2D" parent="."]
+
+[node name="Label" type="Label" parent="tutorialLayer"]
+offset_left = 93.0
+offset_top = -156.0
+offset_right = 318.0
+offset_bottom = -76.0
+text = "Press \"e\" to pick up items"
+label_settings = SubResource("LabelSettings_b2krd")
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Label2" type="Label" parent="tutorialLayer"]
+offset_left = 490.0
+offset_top = 13.0
+offset_right = 715.0
+offset_bottom = 93.0
+text = "Hold \"c\" while holding 2 items to craft"
+label_settings = SubResource("LabelSettings_b2krd")
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Label3" type="Label" parent="tutorialLayer"]
+offset_left = 1413.0
+offset_top = -4.0
+offset_right = 1791.0
+offset_bottom = 98.0
+text = "Press \"space\" to use an item and \"q\" to drop it"
+label_settings = SubResource("LabelSettings_b2krd")
+horizontal_alignment = 1
+autowrap_mode = 3
 
 [node name="floorItemLayer" type="Node2D" parent="."]
 
