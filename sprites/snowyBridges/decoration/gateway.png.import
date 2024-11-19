@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bntm85bexxd2n"
-path="res://.godot/imported/archNormal.png-327d622793233384b4f94d8e7b4876cf.ctex"
+uid="uid://cu5dfnxwumths"
+path="res://.godot/imported/gateway.png-898861f0df145103daaf3aba9f0bb32d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/snowyBridges/decoration/archNormal.png"
-dest_files=["res://.godot/imported/archNormal.png-327d622793233384b4f94d8e7b4876cf.ctex"]
+source_file="res://sprites/snowyBridges/decoration/gateway.png"
+dest_files=["res://.godot/imported/gateway.png-898861f0df145103daaf3aba9f0bb32d.ctex"]
 
 [params]
 

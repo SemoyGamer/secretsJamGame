@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cw0cd3hrp7xf3"]
+[gd_scene load_steps=16 format=3 uid="uid://cw0cd3hrp7xf3"]
 
 [ext_resource type="Script" path="res://scripts/Player.cs" id="1_d4ad3"]
 [ext_resource type="Texture2D" uid="uid://djx460pwqphct" path="res://sprites/player/playerIdle.png" id="2_e8xhw"]
@@ -58,6 +58,9 @@ radius = 36.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_ekjsh"]
 radius = 119.004
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_3d8fv"]
+radius = 36.2215
+
 [node name="player" type="CharacterBody2D"]
 script = ExtResource("1_d4ad3")
 
@@ -87,7 +90,7 @@ shape = SubResource("CircleShape2D_ekjsh")
 wait_time = 1.6
 
 [node name="fanDashTimer" type="Timer" parent="."]
-wait_time = 0.4
+wait_time = 0.45
 one_shot = true
 
 [node name="respawnTimer" type="Timer" parent="."]
@@ -111,7 +114,14 @@ volume_db = 2.0
 stream = ExtResource("7_ypo7k")
 volume_db = -8.0
 
+[node name="levelChanger" type="Area2D" parent="."]
+collision_mask = 768
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelChanger"]
+shape = SubResource("CircleShape2D_3d8fv")
+
 [connection signal="itemChanged" from="." to="itemHolder" method="_on_player_item_changed"]
 [connection signal="itemChanged" from="." to="itemHolder2" method="_on_player_item_changed"]
 [connection signal="timeout" from="craftTimer" to="." method="_on_craft_timer_timeout"]
 [connection signal="timeout" from="respawnTimer" to="." method="_on_respawn_timer_timeout"]
+[connection signal="area_entered" from="levelChanger" to="." method="_on_level_changer_area_entered"]

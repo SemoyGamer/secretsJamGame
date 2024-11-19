@@ -383,4 +383,12 @@ public partial class Player : CharacterBody2D{
 			GetParent().GetNode<Node2D>("floorItemLayer").AddChild(itemToDropIns);
 		}
 	}
+
+	public void _on_level_changer_area_entered(Area2D area){
+		if(area.CollisionLayer == 256){
+			QueueFree();
+		}else if(area.CollisionLayer == 512){
+
+		}
+	}
 }
