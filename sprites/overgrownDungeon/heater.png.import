@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b6pk0tuh2v81d"
-path="res://.godot/imported/weakWallFade.png-82a991336a5ee557c1c8138581769e34.ctex"
+uid="uid://brulwds16fehf"
+path="res://.godot/imported/heater.png-232ac6f9dd268ad8ca2aa0690f5a7adf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/interactableWall/weakWallFade.png"
-dest_files=["res://.godot/imported/weakWallFade.png-82a991336a5ee557c1c8138581769e34.ctex"]
+source_file="res://sprites/overgrownDungeon/heater.png"
+dest_files=["res://.godot/imported/heater.png-232ac6f9dd268ad8ca2aa0690f5a7adf.ctex"]
 
 [params]
 

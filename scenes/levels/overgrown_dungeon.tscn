@@ -1,9 +1,56 @@
-[gd_scene load_steps=2 format=3 uid="uid://dyq10wtjmfl1a"]
+[gd_scene load_steps=11 format=4 uid="uid://dyq10wtjmfl1a"]
 
+[ext_resource type="PackedScene" uid="uid://egjormwss4ju" path="res://objects/overgrownDungeon/overgrown_dungeon_tile.tscn" id="1_hyo1a"]
 [ext_resource type="PackedScene" uid="uid://cw0cd3hrp7xf3" path="res://objects/player.tscn" id="1_tum7c"]
+[ext_resource type="Texture2D" uid="uid://cfolng2byeprm" path="res://sprites/overgrownDungeon/decoration/puddles/puddleFour.png" id="2_p7w3s"]
+[ext_resource type="PackedScene" uid="uid://ck1quuqn18qaf" path="res://objects/itemObj/floorItems/torch_floor.tscn" id="3_bu70i"]
+[ext_resource type="Texture2D" uid="uid://dhbacrvs2o4cn" path="res://sprites/overgrownDungeon/decoration/puddles/puddleTwo.png" id="3_yfr23"]
+[ext_resource type="PackedScene" uid="uid://dpgivepma1rdx" path="res://objects/overgrownDungeon/heater.tscn" id="4_iq3yw"]
+[ext_resource type="PackedScene" uid="uid://rtrmy27erek2" path="res://objects/interactableObjects/weak_wall.tscn" id="4_p2h7q"]
+[ext_resource type="PackedScene" uid="uid://el4egwx5dm0" path="res://objects/itemObj/floorItems/bomb_floor.tscn" id="8_4nmsj"]
+[ext_resource type="Texture2D" uid="uid://ry6cadxvx6gr" path="res://sprites/overgrownDungeon/decoration/dirt/dirtTwo.png" id="8_a2smm"]
+[ext_resource type="Texture2D" uid="uid://b63mpix631wxc" path="res://sprites/overgrownDungeon/decoration/dirt/dirtOne.png" id="9_44kyy"]
 
 [node name="overgrownDungeon" type="Node2D"]
 
-[node name="player" parent="." instance=ExtResource("1_tum7c")]
+[node name="overgrownDungeonTile" parent="." instance=ExtResource("1_hyo1a")]
+tile_map_data = PackedByteArray("AAD9//3/AAABAAMAAAD9//7/AAABAAMAAAD9////AAABAAMAAAD9/wAAAAABAAMAAAD9/wEAAAABAAMAAAD9/wIAAAABAAMAAAD9/wMAAAABAAMAAAD+//3/AAACAAAAAAD+//7/AAABAAMAAAD+////AAABAAMAAAD+/wAAAAABAAMAAAD+/wEAAAABAAMAAAD+/wIAAAABAAMAAAD+/wMAAAABAAMAAAD///3/AAABAAMAAAD///7/AAABAAMAAAD/////AAABAAMAAAD//wAAAAABAAMAAAD//wEAAAABAAMAAAD//wIAAAABAAMAAAD//wMAAAABAAMAAAAAAP3/AAABAAMAAAAAAP7/AAABAAMAAAAAAP//AAABAAMAAAAAAAAAAAABAAMAAAAAAAEAAAABAAMAAAAAAAIAAAABAAMAAAAAAAMAAAABAAMAAAABAP3/AAABAAMAAAABAP7/AAABAAMAAAABAP//AAABAAMAAAABAAAAAAABAAMAAAABAAEAAAABAAMAAAABAAIAAAABAAMAAAABAAMAAAABAAMAAAACAP3/AAABAAMAAAACAP7/AAABAAMAAAACAP//AAABAAMAAAACAAAAAAABAAMAAAACAAEAAAABAAMAAAACAAIAAAACAAEAAAACAAMAAAABAAMAAAADAP3/AAABAAMAAAADAP7/AAABAAMAAAADAP//AAABAAMAAAADAAAAAAABAAMAAAADAAEAAAABAAMAAAADAAIAAAABAAMAAAADAAMAAAABAAMAAAAEAP3/AAACAAMAAAAEAP7/AAACAAMAAAAEAP//AAACAAMAAAAEAAAAAAACAAMAAAAEAAEAAAACAAMAAAAEAAIAAAACAAMAAAAEAAMAAAACAAMAAAAEAAQAAAACAAQAAAD9/wQAAAABAAQAAAD+/wQAAAABAAQAAAD//wQAAAABAAQAAAAAAAQAAAABAAQAAAABAAQAAAABAAQAAAACAAQAAAABAAQAAAADAAQAAAABAAQAAAD9//z/AAABAAIAAAD+//z/AAABAAIAAAD///z/AAABAAIAAAAAAPz/AAABAAIAAAABAPz/AAABAAIAAAACAPz/AAABAAIAAAADAPz/AAABAAIAAAAEAPz/AAACAAIAAAD8//z/AAAAAAEAAAD8//3/AAABAAMAAAD3//v/AAABAAMAAAD3//z/AAABAAMAAAD3//3/AAABAAMAAAD3//7/AAABAAMAAAD3////AAABAAMAAAD3/wAAAAABAAMAAAD3/wEAAAABAAMAAAD3/wIAAAABAAMAAAD3/wMAAAABAAMAAAD4//v/AAABAAMAAAD4//z/AAABAAMAAAD4//3/AAABAAMAAAD4//7/AAABAAMAAAD4////AAABAAMAAAD4/wAAAAABAAMAAAD4/wEAAAABAAMAAAD4/wIAAAABAAMAAAD4/wMAAAABAAMAAAD5//v/AAABAAMAAAD5//z/AAABAAMAAAD5//3/AAABAAMAAAD5//7/AAABAAMAAAD5////AAABAAMAAAD5/wAAAAABAAMAAAD5/wEAAAABAAMAAAD5/wIAAAABAAMAAAD5/wMAAAABAAMAAAD6//v/AAABAAMAAAD6//z/AAABAAMAAAD6//3/AAABAAMAAAD6//7/AAABAAMAAAD6////AAABAAMAAAD6/wAAAAABAAMAAAD6/wEAAAABAAMAAAD6/wIAAAABAAMAAAD6/wMAAAABAAMAAAD7//v/AAABAAMAAAD7//z/AAABAAMAAAD7//3/AAABAAMAAAD7//7/AAABAAMAAAD7////AAABAAMAAAD7/wAAAAABAAMAAAD7/wEAAAABAAMAAAD7/wIAAAABAAMAAAD7/wMAAAABAAMAAAD8//v/AAACAAMAAAD8//7/AAABAAMAAAD8////AAABAAMAAAD8/wAAAAABAAMAAAD8/wEAAAABAAMAAAD8/wIAAAABAAMAAAD8/wMAAAABAAMAAAD3/wQAAAABAAQAAAD4/wQAAAABAAQAAAD5/wQAAAABAAQAAAD6/wQAAAABAAQAAAD7/wQAAAABAAQAAAD8/wQAAAABAAQAAAD2/wQAAAAAAAQAAAD8//r/AAACAAMAAAD8//n/AAACAAIAAAD3//n/AAABAAIAAAD4//n/AAABAAIAAAD5//n/AAABAAIAAAD6//n/AAABAAIAAAD7//n/AAABAAIAAAD2//n/AAAAAAIAAAD2//r/AAAAAAMAAAD2//v/AAAAAAMAAAD2//z/AAAAAAMAAAD2//3/AAAAAAMAAAD2//7/AAAAAAMAAAD2////AAAAAAMAAAD2/wAAAAAAAAMAAAD2/wEAAAAAAAMAAAD2/wIAAAAAAAMAAAD2/wMAAAAAAAMAAAD3//r/AAABAAMAAAD4//r/AAABAAMAAAD5//r/AAABAAMAAAD6//r/AAABAAMAAAD7//r/AAABAAMAAAA=")
+
+[node name="puddleLayer" type="Node2D" parent="."]
+modulate = Color(0.234665, 0.245046, 0.355469, 0.27451)
+
+[node name="PuddleFour" type="Sprite2D" parent="puddleLayer"]
+position = Vector2(-278, -66)
+texture = ExtResource("2_p7w3s")
+
+[node name="PuddleTwo" type="Sprite2D" parent="puddleLayer"]
+position = Vector2(-105, 165)
+texture = ExtResource("3_yfr23")
+
+[node name="weakWallLayer" type="Node2D" parent="."]
+
+[node name="weakWall" parent="weakWallLayer" instance=ExtResource("4_p2h7q")]
+position = Vector2(-162, -128)
 
 [node name="floorItemLayer" type="Node2D" parent="."]
+
+[node name="torchFloor" parent="floorItemLayer" instance=ExtResource("3_bu70i")]
+position = Vector2(148, 191)
+
+[node name="decorationLayer" type="Node2D" parent="."]
+
+[node name="heater" parent="decorationLayer" instance=ExtResource("4_iq3yw")]
+position = Vector2(-332, 100)
+
+[node name="DirtOne" type="Sprite2D" parent="decorationLayer"]
+position = Vector2(-404, -188)
+texture = ExtResource("9_44kyy")
+
+[node name="DirtTwo" type="Sprite2D" parent="decorationLayer"]
+position = Vector2(80, -28)
+texture = ExtResource("8_a2smm")
+
+[node name="player" parent="." instance=ExtResource("1_tum7c")]
+
+[node name="bombFloor" parent="." instance=ExtResource("8_4nmsj")]
+position = Vector2(-486, -48)

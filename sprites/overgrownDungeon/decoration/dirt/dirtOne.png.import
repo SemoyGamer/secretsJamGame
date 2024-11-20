@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b6pk0tuh2v81d"
-path="res://.godot/imported/weakWallFade.png-82a991336a5ee557c1c8138581769e34.ctex"
+uid="uid://b63mpix631wxc"
+path="res://.godot/imported/dirtOne.png-4de79500162d4aa99c146d1fb6b10059.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/interactableWall/weakWallFade.png"
-dest_files=["res://.godot/imported/weakWallFade.png-82a991336a5ee557c1c8138581769e34.ctex"]
+source_file="res://sprites/overgrownDungeon/decoration/dirt/dirtOne.png"
+dest_files=["res://.godot/imported/dirtOne.png-4de79500162d4aa99c146d1fb6b10059.ctex"]
 
 [params]
 

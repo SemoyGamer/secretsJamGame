@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b6pk0tuh2v81d"
-path="res://.godot/imported/weakWallFade.png-82a991336a5ee557c1c8138581769e34.ctex"
+uid="uid://dhbacrvs2o4cn"
+path="res://.godot/imported/puddleTwo.png-3bec1ea834cd3a05748b7e34c2631663.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/interactableWall/weakWallFade.png"
-dest_files=["res://.godot/imported/weakWallFade.png-82a991336a5ee557c1c8138581769e34.ctex"]
+source_file="res://sprites/overgrownDungeon/decoration/puddles/puddleTwo.png"
+dest_files=["res://.godot/imported/puddleTwo.png-3bec1ea834cd3a05748b7e34c2631663.ctex"]
 
 [params]
 

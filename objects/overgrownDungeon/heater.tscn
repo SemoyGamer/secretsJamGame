@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://dpgivepma1rdx"]
+
+[ext_resource type="Texture2D" uid="uid://brulwds16fehf" path="res://sprites/overgrownDungeon/heater.png" id="1_gtywa"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yv4k4"]
+radius = 96.0
+
+[sub_resource type="Gradient" id="Gradient_l4ab8"]
+offsets = PackedFloat32Array(0, 0.705224)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_uwjnf"]
+gradient = SubResource("Gradient_l4ab8")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_7lloc"]
+polygon = PackedVector2Array(-20, -96, -20, -92, -36, -92, -36, -88, -44, -88, -44, -84, -52, -84, -52, -80, -56, -80, -56, -76, -64, -76, -64, -72, -68, -72, -68, -68, -72, -68, -72, -64, -76, -64, -76, -56, -80, -56, -80, -52, -84, -52, -84, -44, -88, -44, -88, -36, -92, -36, -92, -20, -96, -20, -96, 20, -92, 20, -92, 36, -88, 36, -88, 44, -84, 44, -84, 52, -80, 52, -80, 56, -76, 56, -76, 64, -72, 64, -72, 68, -68, 68, -68, 72, -64, 72, -64, 76, -56, 76, -56, 80, -52, 80, -52, 84, -44, 84, -44, 88, -36, 88, -36, 92, -20, 92, -20, 96, 20, 96, 20, 92, 36, 92, 36, 88, 44, 88, 44, 84, 52, 84, 52, 80, 56, 80, 56, 76, 64, 76, 64, 72, 68, 72, 68, 68, 72, 68, 72, 64, 76, 64, 76, 56, 80, 56, 80, 52, 84, 52, 84, 44, 88, 44, 88, 36, 92, 36, 92, 20, 96, 20, 96, -20, 92, -20, 92, -36, 88, -36, 88, -44, 84, -44, 84, -52, 80, -52, 80, -56, 76, -56, 76, -64, 72, -64, 72, -68, 68, -68, 68, -72, 64, -72, 64, -76, 56, -76, 56, -80, 52, -80, 52, -84, 44, -84, 44, -88, 36, -88, 36, -92, 20, -92, 20, -96)
+
+[node name="heater" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_gtywa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_yv4k4")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(0.8, 0.196078, 0.0980392, 1)
+energy = 1.79
+shadow_enabled = true
+shadow_filter = 1
+shadow_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_uwjnf")
+texture_scale = 8.34
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_7lloc")
