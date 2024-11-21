@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://b6t2kojyegpto"]
+
+[ext_resource type="Texture2D" uid="uid://d0vnqkj43saj1" path="res://sprites/overgrownDungeon/decoration/workshop.png" id="1_li2q5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ajsh"]
+size = Vector2(128, 72)
+
+[node name="workshop" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_li2q5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_4ajsh")

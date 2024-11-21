@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://k65ry4415x65"]
+
+[ext_resource type="Texture2D" uid="uid://cxoutqmdeku5g" path="res://sprites/overgrownDungeon/decoration/workshop2.png" id="1_srthm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ajsh"]
+size = Vector2(128, 72)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_imsos"]
+polygon = PackedVector2Array(-52, -28, 52, -28, 52, 0, -52, 0)
+
+[node name="workshop2" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_srthm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_4ajsh")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_imsos")
