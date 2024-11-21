@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://dyq10wtjmfl1a"]
+[gd_scene load_steps=12 format=4 uid="uid://dyq10wtjmfl1a"]
 
 [ext_resource type="PackedScene" uid="uid://egjormwss4ju" path="res://objects/overgrownDungeon/overgrown_dungeon_tile.tscn" id="1_hyo1a"]
 [ext_resource type="PackedScene" uid="uid://cw0cd3hrp7xf3" path="res://objects/player.tscn" id="1_tum7c"]
@@ -7,8 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://dhbacrvs2o4cn" path="res://sprites/overgrownDungeon/decoration/puddles/puddleTwo.png" id="3_yfr23"]
 [ext_resource type="PackedScene" uid="uid://dpgivepma1rdx" path="res://objects/overgrownDungeon/heater.tscn" id="4_iq3yw"]
 [ext_resource type="PackedScene" uid="uid://rtrmy27erek2" path="res://objects/interactableObjects/weak_wall.tscn" id="4_p2h7q"]
+[ext_resource type="Texture2D" uid="uid://c253cah3nukgm" path="res://sprites/overgrownDungeon/decoration/plants/plantOne.png" id="5_dlg5h"]
+[ext_resource type="Texture2D" uid="uid://co6scyiq732km" path="res://sprites/overgrownDungeon/decoration/plants/plantThree.png" id="6_t76um"]
 [ext_resource type="PackedScene" uid="uid://el4egwx5dm0" path="res://objects/itemObj/floorItems/bomb_floor.tscn" id="8_4nmsj"]
-[ext_resource type="Texture2D" uid="uid://ry6cadxvx6gr" path="res://sprites/overgrownDungeon/decoration/dirt/dirtTwo.png" id="8_a2smm"]
 [ext_resource type="Texture2D" uid="uid://b63mpix631wxc" path="res://sprites/overgrownDungeon/decoration/dirt/dirtOne.png" id="9_44kyy"]
 
 [node name="overgrownDungeon" type="Node2D"]
@@ -27,6 +28,23 @@ texture = ExtResource("2_p7w3s")
 position = Vector2(-105, 165)
 texture = ExtResource("3_yfr23")
 
+[node name="dirtLayer" type="Node2D" parent="."]
+
+[node name="DirtOne" type="Sprite2D" parent="dirtLayer"]
+position = Vector2(-404, -180)
+texture = ExtResource("9_44kyy")
+
+[node name="plantLayer" type="Node2D" parent="."]
+modulate = Color(0.589844, 0.589844, 0.589844, 1)
+
+[node name="PlantOne" type="Sprite2D" parent="plantLayer"]
+position = Vector2(-384, -170)
+texture = ExtResource("5_dlg5h")
+
+[node name="PlantThree" type="Sprite2D" parent="plantLayer"]
+position = Vector2(-434, -156)
+texture = ExtResource("6_t76um")
+
 [node name="weakWallLayer" type="Node2D" parent="."]
 
 [node name="weakWall" parent="weakWallLayer" instance=ExtResource("4_p2h7q")]
@@ -37,20 +55,12 @@ position = Vector2(-162, -128)
 [node name="torchFloor" parent="floorItemLayer" instance=ExtResource("3_bu70i")]
 position = Vector2(148, 191)
 
+[node name="bombFloor" parent="floorItemLayer" instance=ExtResource("8_4nmsj")]
+position = Vector2(-486, -48)
+
 [node name="decorationLayer" type="Node2D" parent="."]
 
 [node name="heater" parent="decorationLayer" instance=ExtResource("4_iq3yw")]
 position = Vector2(-332, 100)
 
-[node name="DirtOne" type="Sprite2D" parent="decorationLayer"]
-position = Vector2(-404, -188)
-texture = ExtResource("9_44kyy")
-
-[node name="DirtTwo" type="Sprite2D" parent="decorationLayer"]
-position = Vector2(80, -28)
-texture = ExtResource("8_a2smm")
-
 [node name="player" parent="." instance=ExtResource("1_tum7c")]
-
-[node name="bombFloor" parent="." instance=ExtResource("8_4nmsj")]
-position = Vector2(-486, -48)
