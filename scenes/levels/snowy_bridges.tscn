@@ -889,8 +889,8 @@ position = Vector2(10155, -2361)
 scale = Vector2(15.5673, 34.0118)
 
 [node name="fallArea12" parent="fallAreas" instance=ExtResource("22_bfg7c")]
-position = Vector2(8741, -3395)
-scale = Vector2(15.5673, 34.0118)
+position = Vector2(8885, -3395)
+scale = Vector2(31.1273, 34.0118)
 
 [node name="fallArea13" parent="fallAreas" instance=ExtResource("22_bfg7c")]
 position = Vector2(12541, -3704)
