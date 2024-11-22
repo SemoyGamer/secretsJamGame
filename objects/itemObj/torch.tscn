@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c5yp33klxjchp"]
+[gd_scene load_steps=13 format=3 uid="uid://c5yp33klxjchp"]
 
 [ext_resource type="Texture2D" uid="uid://bu4dsq27tt7as" path="res://sprites/items/torch.png" id="1_pw4bw"]
 [ext_resource type="Script" path="res://scripts/animationPlayer.cs" id="2_nn0wr"]
@@ -56,6 +56,9 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.821101, 0.885321)
 
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_2twcy"]
+a = Vector2(0, -40)
+
 [node name="torch" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_j1mcj")
 frame_progress = 0.653603
@@ -76,7 +79,14 @@ texture = SubResource("GradientTexture2D_qwr7f")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_vf4g4")
-volume_db = 3.5
+volume_db = 10.0
 autoplay = true
 max_distance = 900.0
 attenuation = 5.09823
+
+[node name="fakeWallDetector" type="Area2D" parent="."]
+collision_layer = 1024
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="fakeWallDetector"]
+position = Vector2(0, -14)
+shape = SubResource("SegmentShape2D_2twcy")

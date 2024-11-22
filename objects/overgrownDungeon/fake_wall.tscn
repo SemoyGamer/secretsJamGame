@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://c2g0ies440qlx"]
+
+[ext_resource type="Script" path="res://scripts/mapInteractable/FakeWall.cs" id="1_1lvfk"]
+[ext_resource type="Texture2D" uid="uid://bnk5qfkhauytv" path="res://sprites/overgrownDungeon/wall.png" id="1_rscax"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1qoj3"]
+size = Vector2(64, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e6yyy"]
+size = Vector2(18, 128)
+
+[node name="fakeWall" type="StaticBody2D"]
+script = ExtResource("1_1lvfk")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 32)
+texture = ExtResource("1_rscax")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(0, -32)
+texture = ExtResource("1_rscax")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_1qoj3")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 1024
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_e6yyy")
+
+[node name="destroyTimer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
+[connection signal="timeout" from="destroyTimer" to="." method="_on_destroy_timer_timeout"]

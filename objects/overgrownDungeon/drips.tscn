@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://b4imoad105epu"]
+
+[sub_resource type="Curve" id="Curve_44v3k"]
+_data = [Vector2(0, 0.174765), 0.0, 0.0, 0, 0, Vector2(0.094697, 0.857367), 0.0, 0.0, 0, 0, Vector2(0.837121, 0.510972), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_wx1kd"]
+curve = SubResource("Curve_44v3k")
+
+[sub_resource type="Curve" id="Curve_vuh87"]
+min_value = 0.99
+max_value = 5.0
+_data = [Vector2(0.0113636, 1.85422), 0.0, 0.0, 0, 0, Vector2(0.0530303, 4.91829), 0.0, 0.0, 0, 0, Vector2(0.890152, 1.93593), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_28jst"]
+curve = SubResource("Curve_vuh87")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_efj8j"]
+emission_shape = 3
+emission_box_extents = Vector3(15, 15, 0)
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_28jst")
+color = Color(0.303345, 0.455551, 0.546875, 1)
+alpha_curve = SubResource("CurveTexture_wx1kd")
+
+[node name="drips" type="GPUParticles2D"]
+position = Vector2(-286, -73)
+amount = 3
+process_material = SubResource("ParticleProcessMaterial_efj8j")
+lifetime = 3.0
