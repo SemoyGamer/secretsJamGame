@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://dyq10wtjmfl1a"]
+[gd_scene load_steps=25 format=4 uid="uid://dyq10wtjmfl1a"]
 
 [ext_resource type="PackedScene" uid="uid://egjormwss4ju" path="res://objects/overgrownDungeon/overgrown_dungeon_tile.tscn" id="1_hyo1a"]
 [ext_resource type="PackedScene" uid="uid://cw0cd3hrp7xf3" path="res://objects/player.tscn" id="1_tum7c"]
@@ -14,8 +14,13 @@
 [ext_resource type="Texture2D" uid="uid://c253cah3nukgm" path="res://sprites/overgrownDungeon/decoration/plants/plantOne.png" id="9_d70ot"]
 [ext_resource type="Texture2D" uid="uid://co6scyiq732km" path="res://sprites/overgrownDungeon/decoration/plants/plantThree.png" id="10_kj641"]
 [ext_resource type="Texture2D" uid="uid://0bds4bqwb7g5" path="res://sprites/overgrownDungeon/decoration/plants/plantTwo.png" id="11_jj820"]
+[ext_resource type="PackedScene" uid="uid://dpgivepma1rdx" path="res://objects/overgrownDungeon/heater.tscn" id="14_nw4dh"]
+[ext_resource type="PackedScene" uid="uid://b6t2kojyegpto" path="res://objects/overgrownDungeon/workshop.tscn" id="15_2bh6h"]
 [ext_resource type="Texture2D" uid="uid://b5k7f2vyyqcwh" path="res://sprites/overgrownDungeon/decoration/spiderWebs/spiderWeb.png" id="15_6jcj3"]
+[ext_resource type="PackedScene" uid="uid://k65ry4415x65" path="res://objects/overgrownDungeon/workshop_2.tscn" id="16_e73mm"]
 [ext_resource type="Texture2D" uid="uid://44mpr317f2bq" path="res://sprites/overgrownDungeon/decoration/spiderWebs/spiderWebTwo.png" id="16_rhh30"]
+[ext_resource type="Texture2D" uid="uid://crqk2wkkdo7jo" path="res://sprites/overgrownDungeon/decoration/torchHolder.png" id="17_22kj6"]
+[ext_resource type="PackedScene" uid="uid://dhggita4mpbew" path="res://objects/snowyBridges/decoration/control_panel.tscn" id="18_onm4o"]
 [ext_resource type="PackedScene" uid="uid://c2g0ies440qlx" path="res://objects/overgrownDungeon/fake_wall.tscn" id="19_pi5py"]
 [ext_resource type="AudioStream" uid="uid://dc4hgeji2s0m4" path="res://sounds/ambient/waterDripping.mp3" id="20_i7mv1"]
 [ext_resource type="AudioStream" uid="uid://5ofdupmij4oi" path="res://sounds/ambient/dungeon-air-6983.mp3" id="21_6f8ws"]
@@ -91,6 +96,7 @@ texture = ExtResource("4_hcn8u")
 [node name="fakeWallLayer" type="Node2D" parent="."]
 
 [node name="fakeWall" parent="fakeWallLayer" instance=ExtResource("19_pi5py")]
+visible = false
 position = Vector2(1408, 1632)
 rotation = 1.5708
 
@@ -206,7 +212,7 @@ position = Vector2(5787, 4193)
 texture = ExtResource("6_h7avv")
 
 [node name="PuddleTwo4" type="Sprite2D" parent="puddleLayer"]
-position = Vector2(1494, 1993)
+position = Vector2(1675, 2200)
 texture = ExtResource("6_h7avv")
 
 [node name="PuddleTwo5" type="Sprite2D" parent="puddleLayer"]
@@ -463,6 +469,170 @@ position = Vector2(-288, -5)
 rotation = 1.5708
 texture = ExtResource("3_qcaj5")
 
+[node name="heater" parent="decorationLayer" instance=ExtResource("14_nw4dh")]
+position = Vector2(3072, 275)
+
+[node name="heater5" parent="decorationLayer" instance=ExtResource("14_nw4dh")]
+position = Vector2(4247, 2813)
+
+[node name="heater6" parent="decorationLayer" instance=ExtResource("14_nw4dh")]
+position = Vector2(4994, 2813)
+
+[node name="heater7" parent="decorationLayer" instance=ExtResource("14_nw4dh")]
+position = Vector2(4994, 3396)
+
+[node name="heater8" parent="decorationLayer" instance=ExtResource("14_nw4dh")]
+position = Vector2(4242, 3396)
+
+[node name="heater9" parent="decorationLayer" instance=ExtResource("14_nw4dh")]
+position = Vector2(4630, 3108)
+
+[node name="heater10" parent="decorationLayer" instance=ExtResource("14_nw4dh")]
+position = Vector2(4527, 8822)
+
+[node name="heater11" parent="decorationLayer" instance=ExtResource("14_nw4dh")]
+position = Vector2(5005, 8830)
+
+[node name="heater4" parent="decorationLayer" instance=ExtResource("14_nw4dh")]
+position = Vector2(3072, 823)
+
+[node name="heater2" parent="decorationLayer" instance=ExtResource("14_nw4dh")]
+position = Vector2(3701, 275)
+
+[node name="heater3" parent="decorationLayer" instance=ExtResource("14_nw4dh")]
+position = Vector2(3701, 823)
+
+[node name="workshop" parent="decorationLayer" instance=ExtResource("15_2bh6h")]
+position = Vector2(1181, 2363)
+rotation = 3.51575
+
+[node name="workshop2" parent="decorationLayer" instance=ExtResource("16_e73mm")]
+position = Vector2(1624, 2366)
+rotation = 3.14159
+
+[node name="workshop3" parent="decorationLayer" instance=ExtResource("15_2bh6h")]
+position = Vector2(2270, -700)
+
+[node name="workshop4" parent="decorationLayer" instance=ExtResource("16_e73mm")]
+position = Vector2(4896, 117)
+rotation = 3.14159
+
+[node name="workshop5" parent="decorationLayer" instance=ExtResource("16_e73mm")]
+position = Vector2(71, 1510)
+rotation = 1.67552
+
+[node name="workshop6" parent="decorationLayer" instance=ExtResource("15_2bh6h")]
+position = Vector2(4674, 864)
+
+[node name="workshop7" parent="decorationLayer" instance=ExtResource("15_2bh6h")]
+position = Vector2(2422, 4184)
+rotation = -2.2767
+
+[node name="workshop8" parent="decorationLayer" instance=ExtResource("16_e73mm")]
+position = Vector2(6597, 2605)
+rotation = -1.5708
+
+[node name="workshop9" parent="decorationLayer" instance=ExtResource("15_2bh6h")]
+position = Vector2(6618, 4621)
+rotation = -0.577836
+
+[node name="workshop10" parent="decorationLayer" instance=ExtResource("16_e73mm")]
+position = Vector2(6946, 4623)
+rotation = 0.611092
+
+[node name="workshop11" parent="decorationLayer" instance=ExtResource("15_2bh6h")]
+position = Vector2(6701, 6271)
+
+[node name="workshop12" parent="decorationLayer" instance=ExtResource("16_e73mm")]
+position = Vector2(1304, 7534)
+rotation = -2.58071
+
+[node name="workshop13" parent="decorationLayer" instance=ExtResource("15_2bh6h")]
+position = Vector2(1460, 7512)
+rotation = 2.54481
+
+[node name="workshop14" parent="decorationLayer" instance=ExtResource("16_e73mm")]
+position = Vector2(4588, 6324)
+
+[node name="workshop15" parent="decorationLayer" instance=ExtResource("15_2bh6h")]
+position = Vector2(3745, 7266)
+rotation = -0.663104
+
+[node name="TorchHolder" type="Sprite2D" parent="decorationLayer"]
+position = Vector2(530, -762)
+texture = ExtResource("17_22kj6")
+
+[node name="TorchHolder2" type="Sprite2D" parent="decorationLayer"]
+position = Vector2(1959, 314)
+rotation = 3.14159
+texture = ExtResource("17_22kj6")
+
+[node name="TorchHolder3" type="Sprite2D" parent="decorationLayer"]
+position = Vector2(2460, 314)
+rotation = 3.14159
+texture = ExtResource("17_22kj6")
+
+[node name="TorchHolder4" type="Sprite2D" parent="decorationLayer"]
+position = Vector2(1094, 2130)
+rotation = 4.71239
+texture = ExtResource("17_22kj6")
+
+[node name="TorchHolder5" type="Sprite2D" parent="decorationLayer"]
+position = Vector2(4486, 1542)
+rotation = 4.71239
+texture = ExtResource("17_22kj6")
+
+[node name="TorchHolder6" type="Sprite2D" parent="decorationLayer"]
+position = Vector2(3382, 3974)
+texture = ExtResource("17_22kj6")
+
+[node name="TorchHolder7" type="Sprite2D" parent="decorationLayer"]
+position = Vector2(1530, 3828)
+rotation = 1.5708
+texture = ExtResource("17_22kj6")
+
+[node name="TorchHolder8" type="Sprite2D" parent="decorationLayer"]
+position = Vector2(1530, 4354)
+rotation = 1.5708
+texture = ExtResource("17_22kj6")
+
+[node name="TorchHolder10" type="Sprite2D" parent="decorationLayer"]
+position = Vector2(4122, 6074)
+rotation = 3.14159
+texture = ExtResource("17_22kj6")
+
+[node name="TorchHolder11" type="Sprite2D" parent="decorationLayer"]
+position = Vector2(5738, 7162)
+rotation = 3.14159
+texture = ExtResource("17_22kj6")
+
+[node name="TorchHolder12" type="Sprite2D" parent="decorationLayer"]
+position = Vector2(3094, 7622)
+texture = ExtResource("17_22kj6")
+
+[node name="TorchHolder9" type="Sprite2D" parent="decorationLayer"]
+position = Vector2(1530, 4942)
+rotation = 1.5708
+texture = ExtResource("17_22kj6")
+
+[node name="controlPanelLayer" type="Node2D" parent="."]
+modulate = Color(0.695313, 0.695313, 0.695313, 1)
+
+[node name="controlPanel" parent="controlPanelLayer" instance=ExtResource("18_onm4o")]
+position = Vector2(4758, 9114)
+rotation = 3.14159
+
+[node name="controlPanel3" parent="controlPanelLayer" instance=ExtResource("18_onm4o")]
+position = Vector2(4628, 3252)
+
+[node name="controlPanel5" parent="controlPanelLayer" instance=ExtResource("18_onm4o")]
+position = Vector2(3398, 563)
+rotation = 1.5708
+
+[node name="controlPanel4" parent="controlPanelLayer" instance=ExtResource("18_onm4o")]
+position = Vector2(4628, 2968)
+rotation = 3.14159
+
 [node name="player" parent="." instance=ExtResource("1_tum7c")]
 
 [node name="spiderWebs" type="Node2D" parent="."]
@@ -478,7 +648,8 @@ rotation = 1.5708
 texture = ExtResource("15_6jcj3")
 
 [node name="SpiderWeb3" type="Sprite2D" parent="spiderWebs"]
-position = Vector2(1112, 1886)
+position = Vector2(1118, 2408)
+rotation = 4.71239
 texture = ExtResource("15_6jcj3")
 
 [node name="SpiderWeb4" type="Sprite2D" parent="spiderWebs"]
@@ -575,7 +746,7 @@ position = Vector2(3534, 846)
 position = Vector2(2385, 2250)
 
 [node name="drips7" parent="dripsLayer" instance=ExtResource("6_jfg0d")]
-position = Vector2(1489, 1983)
+position = Vector2(1675, 2195)
 
 [node name="drips8" parent="dripsLayer" instance=ExtResource("6_jfg0d")]
 position = Vector2(5649, 4080)
