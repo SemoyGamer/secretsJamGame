@@ -1,0 +1,61 @@
+[gd_scene load_steps=9 format=3 uid="uid://c2yc1u4ha7y5x"]
+
+[ext_resource type="Texture2D" uid="uid://bd7sp3b1kb8uq" path="res://sprites/overgrownDungeon/largeHeater.png" id="1_j036s"]
+[ext_resource type="AudioStream" uid="uid://dsvcyw60o1sj5" path="res://sounds/misc/waterFlowSound.mp3" id="2_4q4p6"]
+[ext_resource type="AudioStream" uid="uid://cu3bbpwgvhu6q" path="res://sounds/misc/generatorSound.mp3" id="3_rxtmi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d2n1x"]
+atlas = ExtResource("1_j036s")
+region = Rect2(0, 0, 384, 384)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4y07e"]
+atlas = ExtResource("1_j036s")
+region = Rect2(0, 384, 384, 384)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_evq7k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d2n1x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4y07e")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_l4ab8"]
+offsets = PackedFloat32Array(0, 0.705224)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_piw86"]
+gradient = SubResource("Gradient_l4ab8")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[node name="largeHeater" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_evq7k")
+autoplay = "default"
+frame_progress = 0.20692
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(0.8, 0.196078, 0.0980392, 1)
+energy = 2.2
+shadow_enabled = true
+shadow_filter = 1
+shadow_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_piw86")
+texture_scale = 20.07
+
+[node name="waterFlowSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_4q4p6")
+autoplay = true
+max_distance = 1200.0
+
+[node name="generatorSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_rxtmi")
+volume_db = 1.5
+autoplay = true
+max_distance = 1400.0

@@ -26,11 +26,11 @@
 [ext_resource type="Texture2D" uid="uid://44mpr317f2bq" path="res://sprites/overgrownDungeon/decoration/spiderWebs/spiderWebTwo.png" id="16_rhh30"]
 [ext_resource type="Texture2D" uid="uid://crqk2wkkdo7jo" path="res://sprites/overgrownDungeon/decoration/torchHolder.png" id="17_22kj6"]
 [ext_resource type="PackedScene" uid="uid://dhggita4mpbew" path="res://objects/snowyBridges/decoration/control_panel.tscn" id="18_onm4o"]
-[ext_resource type="PackedScene" uid="uid://el4egwx5dm0" path="res://objects/itemObj/floorItems/bomb_floor.tscn" id="19_8b2xf"]
 [ext_resource type="PackedScene" uid="uid://c2g0ies440qlx" path="res://objects/overgrownDungeon/fake_wall.tscn" id="19_pi5py"]
 [ext_resource type="AudioStream" uid="uid://dc4hgeji2s0m4" path="res://sounds/ambient/waterDripping.mp3" id="20_i7mv1"]
 [ext_resource type="AudioStream" uid="uid://5ofdupmij4oi" path="res://sounds/ambient/dungeon-air-6983.mp3" id="21_6f8ws"]
 [ext_resource type="PackedScene" uid="uid://rtrmy27erek2" path="res://objects/interactableObjects/weak_wall.tscn" id="29_1hlki"]
+[ext_resource type="PackedScene" uid="uid://c2yc1u4ha7y5x" path="res://objects/overgrownDungeon/large_heater.tscn" id="31_f4xef"]
 
 [node name="overgrownDungeon" type="Node2D"]
 
@@ -682,12 +682,6 @@ position = Vector2(7552, 5874)
 itemToSpawn = ExtResource("16_4j6uw")
 timerLength = 12.0
 
-[node name="bombFloor" parent="floorItemLayer" instance=ExtResource("19_8b2xf")]
-position = Vector2(343, -75)
-
-[node name="torchFloor" parent="floorItemLayer" instance=ExtResource("3_qw8rm")]
-position = Vector2(489, 3)
-
 [node name="decorationLayer" type="Node2D" parent="."]
 
 [node name="Gateway" type="Sprite2D" parent="decorationLayer"]
@@ -841,6 +835,9 @@ texture = ExtResource("17_22kj6")
 position = Vector2(1530, 4942)
 rotation = 1.5708
 texture = ExtResource("17_22kj6")
+
+[node name="largeHeater" parent="decorationLayer" instance=ExtResource("31_f4xef")]
+position = Vector2(8375, 4712)
 
 [node name="controlPanelLayer" type="Node2D" parent="."]
 modulate = Color(0.695313, 0.695313, 0.695313, 1)
