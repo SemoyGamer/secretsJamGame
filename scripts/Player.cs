@@ -278,6 +278,10 @@ public partial class Player : CharacterBody2D{
 				//If both hands are full, then drop the second hand's item
 				chooseItemToDrop(itemHolder2);
 				itemHolder2.deleteItem();
+			}else if(itemHolder1.heldItem == null && itemHolder2.heldItem != null){
+				//if there is an item in hand 2, and not in hand 1, then drop it
+				chooseItemToDrop(itemHolder2);
+				itemHolder2.deleteItem();
 			}
 		}
 	}

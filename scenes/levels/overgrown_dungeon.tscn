@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=4 uid="uid://dyq10wtjmfl1a"]
+[gd_scene load_steps=32 format=4 uid="uid://dyq10wtjmfl1a"]
 
 [ext_resource type="PackedScene" uid="uid://egjormwss4ju" path="res://objects/overgrownDungeon/overgrown_dungeon_tile.tscn" id="1_hyo1a"]
 [ext_resource type="PackedScene" uid="uid://cw0cd3hrp7xf3" path="res://objects/player.tscn" id="1_tum7c"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://co6scyiq732km" path="res://sprites/overgrownDungeon/decoration/plants/plantThree.png" id="10_kj641"]
 [ext_resource type="Texture2D" uid="uid://0bds4bqwb7g5" path="res://sprites/overgrownDungeon/decoration/plants/plantTwo.png" id="11_jj820"]
 [ext_resource type="PackedScene" uid="uid://dcdki26f0rl51" path="res://objects/itemObj/item_spawner.tscn" id="12_oe5ew"]
+[ext_resource type="PackedScene" uid="uid://dollddxx7kvtd" path="res://objects/interactableObjects/plant_wall.tscn" id="12_qvyrf"]
 [ext_resource type="PackedScene" uid="uid://dpgivepma1rdx" path="res://objects/overgrownDungeon/heater.tscn" id="14_nw4dh"]
 [ext_resource type="PackedScene" uid="uid://dd2dlpto57sm7" path="res://objects/itemObj/floorItems/heater_core_floor.tscn" id="14_x2grg"]
 [ext_resource type="PackedScene" uid="uid://b6t2kojyegpto" path="res://objects/overgrownDungeon/workshop.tscn" id="15_2bh6h"]
@@ -25,6 +26,7 @@
 [ext_resource type="Texture2D" uid="uid://44mpr317f2bq" path="res://sprites/overgrownDungeon/decoration/spiderWebs/spiderWebTwo.png" id="16_rhh30"]
 [ext_resource type="Texture2D" uid="uid://crqk2wkkdo7jo" path="res://sprites/overgrownDungeon/decoration/torchHolder.png" id="17_22kj6"]
 [ext_resource type="PackedScene" uid="uid://dhggita4mpbew" path="res://objects/snowyBridges/decoration/control_panel.tscn" id="18_onm4o"]
+[ext_resource type="PackedScene" uid="uid://el4egwx5dm0" path="res://objects/itemObj/floorItems/bomb_floor.tscn" id="19_8b2xf"]
 [ext_resource type="PackedScene" uid="uid://c2g0ies440qlx" path="res://objects/overgrownDungeon/fake_wall.tscn" id="19_pi5py"]
 [ext_resource type="AudioStream" uid="uid://dc4hgeji2s0m4" path="res://sounds/ambient/waterDripping.mp3" id="20_i7mv1"]
 [ext_resource type="AudioStream" uid="uid://5ofdupmij4oi" path="res://sounds/ambient/dungeon-air-6983.mp3" id="21_6f8ws"]
@@ -458,6 +460,61 @@ texture = ExtResource("11_jj820")
 position = Vector2(4580, 9050)
 texture = ExtResource("9_d70ot")
 
+[node name="plantWall" parent="plantLayer" instance=ExtResource("12_qvyrf")]
+position = Vector2(1918, 2176)
+
+[node name="plantWall3" parent="plantLayer" instance=ExtResource("12_qvyrf")]
+position = Vector2(1947, 2368)
+
+[node name="plantWall4" parent="plantLayer" instance=ExtResource("12_qvyrf")]
+position = Vector2(3540, 3073)
+
+[node name="plantWall5" parent="plantLayer" instance=ExtResource("12_qvyrf")]
+position = Vector2(3543, 3201)
+
+[node name="plantWall7" parent="plantLayer" instance=ExtResource("12_qvyrf")]
+position = Vector2(4984, 4032)
+rotation = -0.276669
+
+[node name="plantWall8" parent="plantLayer" instance=ExtResource("12_qvyrf")]
+position = Vector2(4981, 4145)
+
+[node name="plantWall10" parent="plantLayer" instance=ExtResource("12_qvyrf")]
+position = Vector2(4674, 7650)
+rotation = 1.5708
+
+[node name="plantWall13" parent="plantLayer" instance=ExtResource("12_qvyrf")]
+position = Vector2(8449, 5687)
+rotation = 1.5708
+
+[node name="plantWall14" parent="plantLayer" instance=ExtResource("12_qvyrf")]
+position = Vector2(8578, 5694)
+rotation = 1.5708
+
+[node name="plantWall15" parent="plantLayer" instance=ExtResource("12_qvyrf")]
+position = Vector2(8640, 5717)
+rotation = 1.15521
+
+[node name="plantWall12" parent="plantLayer" instance=ExtResource("12_qvyrf")]
+position = Vector2(4865, 7612)
+rotation = 1.71232
+
+[node name="plantWall11" parent="plantLayer" instance=ExtResource("12_qvyrf")]
+position = Vector2(4779, 7653)
+rotation = 1.12215
+
+[node name="plantWall9" parent="plantLayer" instance=ExtResource("12_qvyrf")]
+position = Vector2(5010, 4221)
+rotation = -0.172911
+
+[node name="plantWall6" parent="plantLayer" instance=ExtResource("12_qvyrf")]
+position = Vector2(3560, 3270)
+rotation = 0.543393
+
+[node name="plantWall2" parent="plantLayer" instance=ExtResource("12_qvyrf")]
+position = Vector2(1952, 2264)
+rotation = -0.236326
+
 [node name="weakWallLayer" type="Node2D" parent="."]
 
 [node name="weakWall" parent="weakWallLayer" instance=ExtResource("29_1hlki")]
@@ -624,6 +681,12 @@ timerLength = 12.0
 position = Vector2(7552, 5874)
 itemToSpawn = ExtResource("16_4j6uw")
 timerLength = 12.0
+
+[node name="bombFloor" parent="floorItemLayer" instance=ExtResource("19_8b2xf")]
+position = Vector2(343, -75)
+
+[node name="torchFloor" parent="floorItemLayer" instance=ExtResource("3_qw8rm")]
+position = Vector2(489, 3)
 
 [node name="decorationLayer" type="Node2D" parent="."]
 
