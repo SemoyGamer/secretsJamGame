@@ -837,7 +837,7 @@ rotation = 1.5708
 texture = ExtResource("17_22kj6")
 
 [node name="largeHeater" parent="decorationLayer" instance=ExtResource("31_f4xef")]
-position = Vector2(8375, 4712)
+position = Vector2(8549, 4707)
 
 [node name="controlPanelLayer" type="Node2D" parent="."]
 modulate = Color(0.695313, 0.695313, 0.695313, 1)
@@ -858,6 +858,7 @@ position = Vector2(4628, 2968)
 rotation = 3.14159
 
 [node name="player" parent="." instance=ExtResource("1_tum7c")]
+position = Vector2(8523, 5593)
 
 [node name="spiderWebs" type="Node2D" parent="."]
 
