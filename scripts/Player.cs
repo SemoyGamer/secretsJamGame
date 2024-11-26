@@ -391,8 +391,6 @@ public partial class Player : CharacterBody2D{
 	public void _on_level_changer_area_entered(Area2D area){
 		if(area.CollisionLayer == 256){
 			GetTree().ChangeSceneToFile("res://scenes/levels/overgrown_dungeon.tscn");
-		}else if(area.CollisionLayer == 512){
-
 		}
 	}
 }

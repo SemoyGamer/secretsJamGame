@@ -7,6 +7,7 @@ public partial class LargeHeater : AnimatedSprite2D
 	Timer walkTimer;
 
 	bool isWalking = false;
+	bool isEndAnim = false;
 
 	public override void _Ready()
 	{
@@ -42,5 +43,16 @@ public partial class LargeHeater : AnimatedSprite2D
 		Play("waterGone");
 		GetNode<AnimatedSprite2D>("offButton").Play("pressed");
 		GetNode<AudioStreamPlayer2D>("waterFlowSound").Stop();
+		isEndAnim = true;
+	}
+
+	public void _on_animation_finished(){
+		if(isEndAnim){
+			GetNode<Timer>("endTimer").Start();
+		}
+	}
+
+	public void _on_end_timer_timeout(){
+		GetTree().ChangeSceneToFile("res://scenes/menus/end_scene.tscn");
 	}
 }
