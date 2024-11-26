@@ -858,7 +858,6 @@ position = Vector2(4628, 2968)
 rotation = 3.14159
 
 [node name="player" parent="." instance=ExtResource("1_tum7c")]
-position = Vector2(8523, 5593)
 
 [node name="spiderWebs" type="Node2D" parent="."]
 

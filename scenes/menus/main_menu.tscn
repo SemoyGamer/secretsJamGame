@@ -1,3 +1,176 @@
-[gd_scene format=3 uid="uid://17vdref6g5ju"]
+[gd_scene load_steps=14 format=3 uid="uid://17vdref6g5ju"]
+
+[ext_resource type="Texture2D" uid="uid://cltami2jak8x4" path="res://sprites/menu/mainMenu.png" id="1_brv7s"]
+[ext_resource type="Script" path="res://scripts/menus/MainMenu.cs" id="1_rmug8"]
+[ext_resource type="AudioStream" uid="uid://cue21rcnxt7vq" path="res://sounds/ambient/cold-wind-sound-effect-127448.mp3" id="2_lv47p"]
+[ext_resource type="AudioStream" uid="uid://r58buweqdtqs" path="res://sounds/ambient/455929__florianreichelt__fresh-and-light-snowfall.wav" id="3_txosv"]
+[ext_resource type="Texture2D" uid="uid://b1ttgjxbx2m5u" path="res://sprites/menu/menuButton.png" id="4_c805j"]
+[ext_resource type="FontFile" uid="uid://b0q1118wgkaoo" path="res://fonts/Minecraft.ttf" id="5_uvl4s"]
+
+[sub_resource type="Curve" id="Curve_rstw3"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.52116), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_14ba6"]
+curve = SubResource("Curve_rstw3")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_kp5wn"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(960, 1, 1)
+gravity = Vector3(0, 20, 0)
+radial_accel_min = -1.0
+radial_accel_max = -2.23517e-06
+damping_min = 5.0
+damping_max = 5.0
+scale_min = 2.0
+scale_max = 5.0
+alpha_curve = SubResource("CurveTexture_14ba6")
+collision_mode = 1
+collision_friction = 1.0
+collision_bounce = 0.0
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ptipb"]
+polygon = PackedVector2Array(-302, 10, -462, 10, -462, 14, -466, 14, -466, 18, -470, 18, -470, 26, -466, 26, -466, 30, -462, 30, -462, 34, -458, 34, -458, 46, -462, 46, -462, 50, -466, 50, -466, 70, -462, 70, -462, 74, -458, 74, -458, 78, -454, 78, -454, 86, -458, 86, -458, 90, -462, 90, -462, 98, -458, 98, -458, 102, -454, 102, -454, 114, -346, 114, -346, 118, -338, 118, -338, 122, -334, 122, -334, 126, -326, 126, -326, 134, -322, 134, -322, 138, -318, 138, -318, 142, -314, 142, -314, 154, -310, 154, -310, 170, -306, 170, -306, 182, -302, 182, -302, 382, -150, 382, -150, 182, -146, 182, -146, 166, -142, 166, -142, 158, -138, 158, -138, 150, -134, 150, -134, 142, -130, 142, -130, 138, -126, 138, -126, 130, -118, 130, -118, 126, -110, 126, -110, 122, -102, 122, -102, 114, 278, 114, 278, 118, 286, 118, 286, 122, 290, 122, 290, 126, 298, 126, 298, 134, 302, 134, 302, 138, 306, 138, 306, 142, 310, 142, 310, 150, 314, 150, 314, 170, 318, 170, 318, 182, 322, 182, 322, 382, 470, 382, 470, 10, -174, 10)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_7mttq"]
+polygon = PackedVector2Array(-302, -358, -298, -358, -298, -370, -294, -370, -294, -374, -290, -374, -290, -378, -278, -378, -278, -382, -198, -382, -198, -378, -186, -378, -186, -374, -182, -374, -182, -370, -178, -370, -178, -358, -174, -358, -174, -354, -302, -354)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6abuo"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(960, 1, 1)
+gravity = Vector3(0, 20, 0)
+radial_accel_min = -1.0
+radial_accel_max = -2.23517e-06
+damping_min = 5.0
+damping_max = 5.0
+scale_min = 2.0
+scale_max = 5.0
+alpha_curve = SubResource("CurveTexture_14ba6")
+
+[sub_resource type="LabelSettings" id="LabelSettings_hjym1"]
+font = ExtResource("5_uvl4s")
+font_size = 115
 
 [node name="mainMenu" type="Node2D"]
+script = ExtResource("1_rmug8")
+
+[node name="snow" type="GPUParticles2D" parent="."]
+position = Vector2(960, -70)
+amount = 150
+process_material = SubResource("ParticleProcessMaterial_kp5wn")
+lifetime = 20.0
+preprocess = 10.0
+randomness = 0.5
+
+[node name="MainMenu" type="Sprite2D" parent="."]
+position = Vector2(1450, 698)
+texture = ExtResource("1_brv7s")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="MainMenu"]
+occluder = SubResource("OccluderPolygon2D_ptipb")
+
+[node name="LightOccluder2D2" type="LightOccluder2D" parent="MainMenu"]
+occluder = SubResource("OccluderPolygon2D_7mttq")
+
+[node name="snow2" type="GPUParticles2D" parent="."]
+position = Vector2(960, -70)
+amount = 150
+process_material = SubResource("ParticleProcessMaterial_6abuo")
+lifetime = 20.0
+preprocess = 10.0
+randomness = 0.5
+
+[node name="windSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_lv47p")
+volume_db = 1.0
+autoplay = true
+
+[node name="snowSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_txosv")
+volume_db = -15.0
+pitch_scale = 0.5
+autoplay = true
+
+[node name="playButton" type="TextureButton" parent="."]
+offset_left = 79.0
+offset_top = 499.0
+offset_right = 362.0
+offset_bottom = 632.0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="playButton"]
+offset_right = 282.0
+offset_bottom = 133.0
+texture = ExtResource("4_c805j")
+patch_margin_left = 12
+patch_margin_top = 12
+patch_margin_right = 12
+patch_margin_bottom = 12
+
+[node name="Label" type="Label" parent="playButton"]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 16.0
+offset_right = 260.0
+offset_bottom = 132.0
+text = "Play"
+label_settings = SubResource("LabelSettings_hjym1")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="creditsButton" type="TextureButton" parent="."]
+offset_left = 79.0
+offset_top = 687.0
+offset_right = 510.0
+offset_bottom = 820.0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="creditsButton"]
+offset_right = 431.0
+offset_bottom = 133.0
+texture = ExtResource("4_c805j")
+patch_margin_left = 12
+patch_margin_top = 12
+patch_margin_right = 12
+patch_margin_bottom = 12
+
+[node name="Label" type="Label" parent="creditsButton"]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 16.0
+offset_right = 418.0
+offset_bottom = 132.0
+text = "Credits"
+label_settings = SubResource("LabelSettings_hjym1")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="exitButton" type="TextureButton" parent="."]
+offset_left = 79.0
+offset_top = 885.0
+offset_right = 355.0
+offset_bottom = 1018.0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="exitButton"]
+offset_right = 276.0
+offset_bottom = 133.0
+texture = ExtResource("4_c805j")
+patch_margin_left = 12
+patch_margin_top = 12
+patch_margin_right = 12
+patch_margin_bottom = 12
+
+[node name="Label" type="Label" parent="exitButton"]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 16.0
+offset_right = 260.0
+offset_bottom = 132.0
+text = "Exit"
+label_settings = SubResource("LabelSettings_hjym1")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="playButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="creditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="exitButton" to="." method="_on_exit_button_pressed"]

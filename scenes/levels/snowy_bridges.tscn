@@ -35,7 +35,7 @@ font_size = 32
 _data = [Vector2(0, 0.184953), 0.0, 0.0, 0, 0, Vector2(0.125, 1), 0.0, 0.0, 0, 0, Vector2(0.996212, 0.0219437), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="CurveTexture" id="CurveTexture_rmrh4"]
+[sub_resource type="CurveTexture" id="CurveTexture_emxhq"]
 curve = SubResource("Curve_m6ckl")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fqrwn"]
@@ -51,7 +51,7 @@ tangential_accel_max = 5.0
 damping_min = 5.0
 damping_max = 5.0
 scale_max = 3.0
-alpha_curve = SubResource("CurveTexture_rmrh4")
+alpha_curve = SubResource("CurveTexture_emxhq")
 turbulence_enabled = true
 turbulence_noise_scale = 5.473
 

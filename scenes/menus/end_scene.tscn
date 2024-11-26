@@ -42,6 +42,7 @@ offset_right = 1072.0
 offset_bottom = 804.0
 
 [node name="NinePatchRect" type="NinePatchRect" parent="backButton"]
+layout_mode = 0
 offset_right = 241.0
 offset_bottom = 97.0
 texture = ExtResource("2_rk2mi")

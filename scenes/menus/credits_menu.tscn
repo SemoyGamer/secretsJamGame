@@ -1,0 +1,99 @@
+[gd_scene load_steps=9 format=3 uid="uid://64alog31ifha"]
+
+[ext_resource type="Texture2D" uid="uid://b1ttgjxbx2m5u" path="res://sprites/menu/menuButton.png" id="1_sbtxx"]
+[ext_resource type="Script" path="res://scripts/menus/EndScene.cs" id="1_unlcm"]
+[ext_resource type="FontFile" uid="uid://b0q1118wgkaoo" path="res://fonts/Minecraft.ttf" id="2_mkiyx"]
+[ext_resource type="Texture2D" uid="uid://bdic41tvqcyo4" path="res://sprites/snowyBridges/snow/snowPile1.png" id="4_jvvid"]
+[ext_resource type="Texture2D" uid="uid://b8ay2ytc2x2u3" path="res://sprites/snowyBridges/snow/snowPile2.png" id="5_37h7w"]
+[ext_resource type="Texture2D" uid="uid://du1lhifi2jhnu" path="res://sprites/snowyBridges/snow/snowPile3.png" id="6_hf66a"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_21ebv"]
+font = ExtResource("2_mkiyx")
+font_size = 115
+
+[sub_resource type="LabelSettings" id="LabelSettings_cktxa"]
+font = ExtResource("2_mkiyx")
+font_size = 42
+
+[node name="creditsMenu" type="Node2D"]
+script = ExtResource("1_unlcm")
+
+[node name="backButton" type="TextureButton" parent="."]
+offset_left = 1533.0
+offset_top = 881.0
+offset_right = 1855.0
+offset_bottom = 1014.0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="backButton"]
+offset_right = 322.0
+offset_bottom = 133.0
+texture = ExtResource("1_sbtxx")
+patch_margin_left = 12
+patch_margin_top = 12
+patch_margin_right = 12
+patch_margin_bottom = 12
+
+[node name="Label" type="Label" parent="backButton"]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 16.0
+offset_right = 260.0
+offset_bottom = 132.0
+text = "Back"
+label_settings = SubResource("LabelSettings_21ebv")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="."]
+offset_left = 194.0
+offset_top = 41.0
+offset_right = 1736.0
+offset_bottom = 905.0
+text = "Minecraft Font by Craftron Gaming
+
+Sounds:
+Leaf Blower Sound Effect by floraphonic from Pixabay
+Explosion Sound Effect by Ribhav Agrawal from Pixabay
+Torch Sound Effect by freesound_community from Pixabay
+Scissor Sound Effect by Little Creativity from Pixabay
+Beep Sound Effect by Ribhav Agrawal from Pixabay
+Error Sound Effect by Otto from Pixabay
+Wind Sound Effect by DARRYL DAVID BELIRAN from Pixabay
+Snow Sound Effect by florianreichelt from Freesound
+Walking Sound Effect by Fission9 from Freesound
+Dungeon Sound Effect by freesound_community from Pixabay
+Dripping Water Sound Effect by solarmusic from Pixabay
+Hum Sound Effect by freesound_community from Pixabay
+Generator Sound Effect by freesound_community from Pixabay
+Water Flow Sound Effect by Alexander Jauk from Pixabay
+
+Made in Godot for Github Game Off 2024
+Everything else by Semoy
+"
+label_settings = SubResource("LabelSettings_cktxa")
+horizontal_alignment = 1
+
+[node name="SnowPile1" type="Sprite2D" parent="."]
+position = Vector2(28, 1054)
+texture = ExtResource("4_jvvid")
+
+[node name="SnowPile2" type="Sprite2D" parent="."]
+position = Vector2(1894, 14)
+rotation = 3.14159
+texture = ExtResource("5_37h7w")
+
+[node name="SnowPile3" type="Sprite2D" parent="."]
+position = Vector2(1906, 1054)
+rotation = 4.71239
+texture = ExtResource("5_37h7w")
+
+[node name="SnowPile4" type="Sprite2D" parent="."]
+position = Vector2(1736, 1076)
+texture = ExtResource("6_hf66a")
+
+[node name="SnowPile5" type="Sprite2D" parent="."]
+position = Vector2(26, 28)
+rotation = 1.5708
+texture = ExtResource("4_jvvid")
+
+[connection signal="pressed" from="backButton" to="." method="_on_back_button_pressed"]
