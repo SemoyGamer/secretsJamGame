@@ -53,6 +53,6 @@ public partial class LargeHeater : AnimatedSprite2D
 	}
 
 	public void _on_end_timer_timeout(){
-		GetTree().ChangeSceneToFile("res://scenes/menus/end_scene.tscn");
+		GetTree().ChangeSceneToFile("res://scenes/menus/ending.tscn");
 	}
 }
