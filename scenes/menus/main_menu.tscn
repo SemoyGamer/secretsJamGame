@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://17vdref6g5ju"]
+[gd_scene load_steps=15 format=3 uid="uid://17vdref6g5ju"]
 
 [ext_resource type="Texture2D" uid="uid://cltami2jak8x4" path="res://sprites/menu/mainMenu.png" id="1_brv7s"]
 [ext_resource type="Script" path="res://scripts/menus/MainMenu.cs" id="1_rmug8"]
@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://r58buweqdtqs" path="res://sounds/ambient/455929__florianreichelt__fresh-and-light-snowfall.wav" id="3_txosv"]
 [ext_resource type="Texture2D" uid="uid://b1ttgjxbx2m5u" path="res://sprites/menu/menuButton.png" id="4_c805j"]
 [ext_resource type="FontFile" uid="uid://b0q1118wgkaoo" path="res://fonts/Minecraft.ttf" id="5_uvl4s"]
+[ext_resource type="Texture2D" uid="uid://b7vdqth6bjhnl" path="res://sprites/menu/endlessCold.png" id="7_512r2"]
 
 [sub_resource type="Curve" id="Curve_rstw3"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.52116), 0.0, 0.0, 0, 0]
@@ -100,6 +101,7 @@ offset_right = 362.0
 offset_bottom = 632.0
 
 [node name="NinePatchRect" type="NinePatchRect" parent="playButton"]
+layout_mode = 0
 offset_right = 282.0
 offset_bottom = 133.0
 texture = ExtResource("4_c805j")
@@ -126,6 +128,7 @@ offset_right = 510.0
 offset_bottom = 820.0
 
 [node name="NinePatchRect" type="NinePatchRect" parent="creditsButton"]
+layout_mode = 0
 offset_right = 431.0
 offset_bottom = 133.0
 texture = ExtResource("4_c805j")
@@ -152,6 +155,7 @@ offset_right = 355.0
 offset_bottom = 1018.0
 
 [node name="NinePatchRect" type="NinePatchRect" parent="exitButton"]
+layout_mode = 0
 offset_right = 276.0
 offset_bottom = 133.0
 texture = ExtResource("4_c805j")
@@ -170,6 +174,11 @@ text = "Exit"
 label_settings = SubResource("LabelSettings_hjym1")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="EndlessCold" type="Sprite2D" parent="."]
+position = Vector2(474, 211)
+scale = Vector2(2, 2)
+texture = ExtResource("7_512r2")
 
 [connection signal="pressed" from="playButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="creditsButton" to="." method="_on_credits_button_pressed"]

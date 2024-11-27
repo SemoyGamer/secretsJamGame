@@ -25,6 +25,7 @@ offset_right = 1855.0
 offset_bottom = 1014.0
 
 [node name="NinePatchRect" type="NinePatchRect" parent="backButton"]
+layout_mode = 0
 offset_right = 322.0
 offset_bottom = 133.0
 texture = ExtResource("1_sbtxx")
