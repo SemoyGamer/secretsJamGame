@@ -15,6 +15,7 @@ config/description="End the Cold"
 config/version="1.0"
 run/main_scene="res://scenes/menus/main_menu.tscn"
 config/features=PackedStringArray("4.3", "C#", "Forward Plus")
+config/icon="res://sprites/endlessColdIcon.png"
 
 [autoload]
 
